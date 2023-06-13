@@ -13,3 +13,18 @@ en:
         - For example, they help deliver national professional qualifications (NPQs) and the early career framework (ECF).
         - They can also give advice on professional development.
       start: Start now
+
+  search:
+    form:
+      title: Where do you want to find teaching school hubs?
+      hint: Enter the town, city or the first part of the postcode. For example Chester or CH1.
+      submit: Continue
+
+  activemodel:
+    errors:
+      models:
+        search_form:
+          attributes:
+            location:
+              blank: Enter search location
+
