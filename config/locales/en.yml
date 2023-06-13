@@ -1,4 +1,15 @@
 en:
   service:
-    name: GOV.UK Frontend on Rails
+    name: Find a teaching school hub
+    title: Professional development for teachers and leaders
     email: my-service@email
+
+  pages:
+    home:
+      title: Find a teaching school hub
+      body:
+        - Use this service to find the contact details and websites of teaching school hubs near you.
+        - Teaching school hubs provide professional development for teachers.
+        - For example, they help deliver national professional qualifications (NPQs) and the early career framework (ECF).
+        - They can also give advice on professional development.
+      start: Start now

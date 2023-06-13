@@ -43,7 +43,8 @@ group :test do
 end
 
 group :test, :development do
-  gem 'dotenv-rails'
+  gem "byebug"
+  gem "dotenv-rails"
   gem "rspec"
   gem "rspec-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
