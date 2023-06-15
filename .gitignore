@@ -1,8 +1,9 @@
 *.log
 .DS_Store
 .bundle
-.env
+.byebug_history
 .env.local
+.env.*.local
 .envrc
 .idea
 .vscode

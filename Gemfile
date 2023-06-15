@@ -39,10 +39,13 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
   gem "webdrivers"
 end
 
 group :test, :development do
+  gem "byebug"
+  gem "dotenv-rails"
   gem "rspec"
   gem "rspec-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

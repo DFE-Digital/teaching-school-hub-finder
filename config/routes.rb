@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
+  get "/search", to: "search#form"
+  get "/search/results", to: "search#results"
+
   get "/pages/home", to: "pages#home"
 
   scope via: :all do
