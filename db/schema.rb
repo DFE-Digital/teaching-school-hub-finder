@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_26_101457) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_26_105700) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+
+  create_table "local_authorities", force: :cascade do |t|
+    t.string "name"
+    t.geometry "geometry", limit: {:srid=>27700, :type=>"geometry"}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["geometry"], name: "index_local_authorities_on_geometry", using: :gist
+  end
 
 end

@@ -223,6 +223,8 @@ GEM
     rgeo-activerecord (7.0.1)
       activerecord (>= 5.0)
       rgeo (>= 1.0.0)
+    rgeo-geojson (2.1.1)
+      rgeo (>= 1.0.0)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -362,6 +364,8 @@ DEPENDENCIES
   propshaft
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
+  rgeo
+  rgeo-geojson
   rspec
   rspec-rails
   rubocop-govuk
