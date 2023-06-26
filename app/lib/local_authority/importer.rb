@@ -1,5 +1,5 @@
 class LocalAuthority::Importer
-  DEFAULT_SOURCE = Rails.root.join("db", "data", "authorities.json").freeze
+  DEFAULT_SOURCE = Rails.root.join("db/data/authorities.json").freeze
   attr_reader :path
 
   def initialize(path = DEFAULT_SOURCE)

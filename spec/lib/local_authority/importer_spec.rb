@@ -6,7 +6,7 @@ describe LocalAuthority::Importer do
 
   describe "#load!" do
     it "loads local authorities from given file into the database" do
-      expect { importer.load! }.to change { LocalAuthority.count}.from(0).to 8
+      expect { importer.load! }.to change(LocalAuthority, :count).from(0).to 8
     end
   end
 
@@ -16,7 +16,7 @@ describe LocalAuthority::Importer do
     end
 
     it "deletes all local authorities from the database" do
-      expect { importer.clear! }.to change { LocalAuthority.count }.from(1).to 0
+      expect { importer.clear! }.to change(LocalAuthority, :count).from(1).to 0
     end
   end
 
@@ -26,7 +26,7 @@ describe LocalAuthority::Importer do
     end
 
     it "clears and loads local authorities" do
-      expect { importer.reload! }.to change { LocalAuthority.count }.from(1).to 8
+      expect { importer.reload! }.to change(LocalAuthority, :count).from(1).to 8
     end
   end
 end
