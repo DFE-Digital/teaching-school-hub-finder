@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem "activerecord-postgis-adapter"
 gem "bootsnap", require: false
 gem "bundler", "~> 2.4"
 gem "pg", "~> 1.1"
