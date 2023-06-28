@@ -7,15 +7,28 @@ class LocalAuthority::Importer
   end
 
   def reload!
-    clear!
-    load!
+    ApplicationRecord.transaction do
+      clear
+      load
+    end
   end
 
   def clear!
-    LocalAuthority.delete_all
+    ApplicationRecord.transaction { clear }
   end
 
   def load!
+    ApplicationRecord.transaction { load }
+  end
+
+  private
+
+  def read_file(geojson_path)
+    file = File.read(geojson_path)
+    RGeo::GeoJSON.decode(file, json_parser: :json)
+  end
+
+  def load
     Rails.logger.debug("Loading #{@path}")
 
     features = read_file(@path)
@@ -28,10 +41,7 @@ class LocalAuthority::Importer
     end
   end
 
-  private
-
-  def read_file(geojson_path)
-    file = File.read(geojson_path)
-    RGeo::GeoJSON.decode(file, json_parser: :json)
+  def clear
+    LocalAuthority.delete_all
   end
 end
