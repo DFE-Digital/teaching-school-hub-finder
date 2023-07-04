@@ -13,10 +13,10 @@ jobs:
 
     services:
       postgres:
-        image: postgres:11.6-alpine
+        image: postgis/postgis:11-3.3-alpine
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: ''
+          POSTGRES_PASSWORD: password
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
@@ -67,14 +67,14 @@ jobs:
         run: yarn install
 
       - name: Set up test database
-        run: bin/rails db:prepare
+        run: bin/rails db:create db:schema:load
         env:
-          DATABASE_URL: postgres://postgres:@localhost:5432/test
+          DATABASE_URL: postgis://postgres:password@localhost:5432/test
 
       - name: Run tests
         run: bundle exec rake
         env:
-          DATABASE_URL: postgres://postgres:@localhost:5432/test
+          DATABASE_URL: postgis://postgres:password@localhost:5432/test
   linting:
     name: Run Rubocop
 
