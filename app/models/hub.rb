@@ -1,0 +1,2 @@
+class Hub < ApplicationRecord
+end
