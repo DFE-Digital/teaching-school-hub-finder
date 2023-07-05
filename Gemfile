@@ -21,21 +21,8 @@ gem "govuk-components"
 gem "govuk_design_system_formbuilder"
 
 group :development do
-  gem 'annotate', require: false
   gem 'prettier_print', require: false
-  gem 'solargraph', require: false
-  gem 'solargraph-rails', require: false
-  gem 'syntax_tree', require: false
-  gem 'syntax_tree-haml', require: false
-  gem 'syntax_tree-rbs', require: false
-  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
 end
 
 group :test do
