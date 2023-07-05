@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_134451) do
 
   create_table "hubs", force: :cascade do |t|
     t.string "name"
+    t.string "website"
     t.string "email"
     t.string "phone"
     t.string "areas", default: [], array: true

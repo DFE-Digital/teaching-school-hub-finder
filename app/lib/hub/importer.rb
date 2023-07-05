@@ -2,16 +2,6 @@ require 'csv'
 
 class Hub::Importer
   DEFAULT_SOURCE = Rails.root.join("db/data/hubs.csv").freeze
-  ALIASES = {
-    # "Birmingham North" => "Birmingham",
-    # "Birmingham South" => "Birmingham",
-    # "Cornwall E" => "Cornwall",
-    # "Cornwall W" => "Cornwall",
-    # "East Dorset" => "Dorset",
-    # "North Dorset" => "Dorest",
-    # "East Northamptonshire" => "Northamptonshire",
-    # "South Northamptonshire" => "Northamptonshire"
-  }.freeze
   attr_reader :path
 
   def initialize(path = DEFAULT_SOURCE)
@@ -49,6 +39,7 @@ class Hub::Importer
         name: data['Teaching School Hub name'],
         phone: data['Contact phone number'],
         email: data['Email address'],
+        website: data['TSH website, where available'],
         areas: get_local_authorities(data['Teaching School Hub area'].split(' - ').last)
       )
     end
@@ -73,7 +64,6 @@ class Hub::Importer
   def authorities_with_comas_map
     @authorities_with_comas_map ||= LocalAuthority.where("name LIKE '%,%'")
       .pluck(:name)
-      .map { |name| [name, name.gsub(',', '*')] }
-      .to_h
+      .index_with { |name| name.gsub(',', '*') }
   end
 end

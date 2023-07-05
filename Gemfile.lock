@@ -71,12 +71,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
-    annotate (3.2.0)
-      activerecord (>= 3.2, < 8.0)
-      rake (>= 10.4, < 14.0)
     ast (2.4.2)
-    backport (1.2.0)
-    benchmark (0.2.1)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -105,7 +100,6 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
-    e2mmap (0.1.0)
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -118,10 +112,6 @@ GEM
       activemodel (>= 6.1)
       activesupport (>= 6.1)
       html-attributes-utils (~> 1)
-    haml (6.1.1)
-      temple (>= 0.8.2)
-      thor
-      tilt
     html-attributes-utils (1.0.0)
       activesupport (>= 6.1.4.4)
     i18n (1.14.1)
@@ -129,14 +119,9 @@ GEM
     io-console (0.6.0)
     irb (1.7.0)
       reline (>= 0.3.0)
-    jaro_winkler (1.5.6)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
     json (2.6.3)
-    kramdown (2.4.0)
-      rexml
-    kramdown-parser-gfm (1.1.0)
-      kramdown (~> 2.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -212,12 +197,9 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
-    rbs (2.8.4)
     regexp_parser (2.8.0)
     reline (0.3.5)
       io-console (~> 0.5)
-    reverse_markdown (2.1.1)
-      nokogiri
     rexml (3.2.5)
     rgeo (3.0.0)
     rgeo-activerecord (7.0.1)
@@ -283,38 +265,7 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
-    solargraph (0.49.0)
-      backport (~> 1.2)
-      benchmark
-      bundler (~> 2.0)
-      diff-lcs (~> 1.4)
-      e2mmap
-      jaro_winkler (~> 1.5)
-      kramdown (~> 2.3)
-      kramdown-parser-gfm (~> 1.1)
-      parser (~> 3.0)
-      rbs (~> 2.0)
-      reverse_markdown (~> 2.0)
-      rubocop (~> 1.38)
-      thor (~> 1.0)
-      tilt (~> 2.0)
-      yard (~> 0.9, >= 0.9.24)
-    solargraph-rails (1.1.0)
-      activesupport
-      solargraph
-    syntax_tree (6.1.1)
-      prettier_print (>= 1.2.0)
-    syntax_tree-haml (4.0.3)
-      haml (>= 5.2)
-      prettier_print (>= 1.2.1)
-      syntax_tree (>= 6.0.0)
-    syntax_tree-rbs (1.0.0)
-      prettier_print
-      rbs
-      syntax_tree (>= 2.0.1)
-    temple (0.10.2)
     thor (1.2.2)
-    tilt (2.2.0)
     timeout (0.3.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -338,7 +289,6 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.34)
     zeitwerk (2.6.8)
 
 PLATFORMS
@@ -347,7 +297,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgis-adapter
-  annotate
   bootsnap
   brakeman
   bundler (~> 2.4)
@@ -371,11 +320,6 @@ DEPENDENCIES
   rubocop-govuk
   selenium-webdriver
   shoulda-matchers
-  solargraph
-  solargraph-rails
-  syntax_tree
-  syntax_tree-haml
-  syntax_tree-rbs
   tzinfo-data
   web-console
   webdrivers
