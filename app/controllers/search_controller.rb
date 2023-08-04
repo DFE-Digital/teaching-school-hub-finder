@@ -8,4 +8,10 @@ class SearchController < ApplicationController
 
     render 'form', status: :unprocessable_entity unless @search.valid?
   end
+
+  def validate
+    @names = LocalAuthority.pluck(:name)
+    @hubs = Hub.all
+  end
+
 end

@@ -3,11 +3,11 @@
 # production: runs the actual app
 
 # Build builder image
-FROM ruby:3.2.2-alpine as builder
+FROM ruby:3.1.2-alpine as builder
 
-# RUN apk -U upgrade && \
-#     apk add --update --no-cache gcc git libc6-compat libc-dev make nodejs \
-#     postgresql13-dev yarn
+RUN apk -U upgrade && \
+    apk add --update --no-cache gcc git libc6-compat libc-dev make nodejs \
+    postgresql13-dev yarn
 
 WORKDIR /app
 
@@ -19,7 +19,9 @@ RUN apk add --update --no-cache tzdata && \
 # build-base: dependencies for bundle
 # yarn: node package manager
 # postgresql-dev: postgres driver and libraries
-RUN apk add --no-cache build-base yarn postgresql13-dev libproj-dev proj-bin
+RUN apk add --no-cache build-base yarn postgresql13-dev
+RUN apk add --no-cache proj-dev
+#RUN apk add --no-cache libproj-dev proj-bin
 
 # Install gems defined in Gemfile
 COPY .ruby-version Gemfile Gemfile.lock ./
@@ -39,6 +41,7 @@ RUN yarn install --frozen-lockfile --check-files
 # Copy all files to /app (except what is defined in .dockerignore)
 COPY . .
 
+ENV GOOGLE_MAP_API_KEY="just-for-assets"
 # Precompile assets
 RUN RAILS_ENV=production SECRET_KEY_BASE=required-to-run-but-not-used \
     bundle exec rails assets:precompile
@@ -53,22 +56,21 @@ RUN rm -rf node_modules log/* tmp/* /tmp && \
     find /usr/local/bundle/gems -name "*.html" -delete
 
 # Build runtime image
-FROM ruby:3.2.2-alpine as production
+FROM ruby:3.1.2-alpine as production
 
 # The application runs from /app
 WORKDIR /app
 
 # Add the timezone (prod image) as it's not configured by default in Alpine
-RUN apk add --update --no-cache tzdata && \
-    cp /usr/share/zoneinfo/Europe/London /etc/localtime && \
-    echo "Europe/London" > /etc/timezone
+RUN apk add --update --no-cache tzdata && cp /usr/share/zoneinfo/Europe/London /etc/localtime && echo "Europe/London" > /etc/timezone
 
 # libpq: required to run postgres
 RUN apk add --no-cache libpq
+RUN apk add --no-cache proj-dev
 
 # Copy files generated in the builder image
 COPY --from=builder /app /app
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 
-CMD bundle exec rails db:migrate && \
-    bundle exec rails server -b 0.0.0.0
+CMD RAILS_ENV=production bundle exec rails db:migrate && \
+    RAILS_ENV=production bundle exec rails server -b 0.0.0.0

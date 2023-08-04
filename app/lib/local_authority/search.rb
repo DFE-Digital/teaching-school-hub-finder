@@ -10,12 +10,13 @@ class LocalAuthority::Search
     if search_polygon
       result.where("ST_Intersects(geometry, ?)", search_polygon)
     else
-      result.limit(3)
+      result.limit(5)
     end
   end
 
   def geo_result
-    @geo_result ||= Geocoder.search(@query, params: {limit: 1, polygon_geojson: 1, countrycodes: 'gb'}).first
+#    binding.pry
+    @geo_result ||= Geocoder.search("#{@query}, UK", params: {limit: 1, polygon_geojson: 1, countrycodes: 'gb'}).first
   end
 
   def search_polygon

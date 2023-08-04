@@ -38,6 +38,8 @@ end
 
 group :test, :development do
   gem "byebug"
+  gem "pry"
+  gem "pry-byebug"
   gem "dotenv-rails"
   gem "rspec"
   gem "rspec-rails"

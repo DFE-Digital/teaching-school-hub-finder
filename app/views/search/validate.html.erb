@@ -1,0 +1,30 @@
+<h2>List of Local Authorities in database</h2>
+<p>
+  <%= @names.sort.join(", ") %>
+</p>
+
+<h2>List of hubs</h2>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th>Hub name</th>
+      <th>Hub LAs entries</th>
+      <th>Hub correct LAs entries</th>
+      <th>Hub incorrect LAs entries</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <% @hubs.each do |hub| %>
+      <% hub_match = (hub.areas & @names) %>
+      <% hub_miss  = (hub.areas - @names) %>
+      <% fits = (hub_match.sort == hub.areas.sort) %>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><%= hub.name %></td>
+        <td class="govuk-table__cell"><%= hub.areas.join(", ") %></td>
+        <td class="govuk-table__cell"><%= hub_match.join(', ') %></td>
+        <td class="govuk-table__cell"><%= hub_miss.join(', ') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
