@@ -46,6 +46,9 @@
       </main>
     </div>
 
-    <%= govuk_footer %>
+    <%= govuk_footer(meta_items:
+                     [{href: "/pages/privacy-policy", text: "Privacy Policy"},
+                      {href: "/pages/cookies", text: "Cookies"}])
+                   %>
   </body>
 </html>

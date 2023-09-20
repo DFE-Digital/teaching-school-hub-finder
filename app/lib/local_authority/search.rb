@@ -14,22 +14,22 @@ class LocalAuthority::Search
     end
   end
 
+  def search_centre
+    transform RGeo::Geographic.spherical_factory.point(geo_result.longitude, geo_result.latitude)
+  end
+
   def geo_result
-#    binding.pry
     @geo_result ||= Geocoder.search("#{@query}, UK", params: {limit: 1, polygon_geojson: 1, countrycodes: 'gb'}).first
   end
 
   def search_polygon
     return @search_polygon if defined? @search_polygon
 
+    #binding.pry
     json = geo_result && geo_result.data['geojson']
     return @search_polygon = nil unless json
 
     transform RGeo::GeoJSON.decode(json.to_json)
-  end
-
-  def search_centre
-    transform RGeo::Geographic.spherical_factory.point(geo_result.longitude, geo_result.latitude)
   end
 
   def transform(geo)
