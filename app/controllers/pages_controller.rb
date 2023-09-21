@@ -13,4 +13,8 @@ class PagesController < ApplicationController
 
   def terms
   end
+
+  def healthcheck
+    head :ok
+  end
 end
