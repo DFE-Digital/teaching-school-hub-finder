@@ -9,10 +9,10 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "2.21.1"
     }
-    statuscake = {
-      source  = "StatusCakeDev/statuscake"
-      version = "2.1.0"
-    }
+    // statuscake = {
+    //   source  = "StatusCakeDev/statuscake"
+    //   version = "2.1.0"
+    // }
   }
   backend "azurerm" {
     container_name = "terraform-state"
@@ -34,8 +34,4 @@ provider "kubernetes" {
   client_certificate     = module.cluster_data.kubernetes_client_certificate
   client_key             = module.cluster_data.kubernetes_client_key
   cluster_ca_certificate = module.cluster_data.kubernetes_cluster_ca_certificate
-}
-
-provider "statuscake" {
-  api_token = module.infrastructure_secrets.map.STATUSCAKE-API-TOKEN
 }
