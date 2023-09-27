@@ -6,6 +6,6 @@ class LocalAuthority < ApplicationRecord
   end
 
   def self.order_by_distance_from(point)
-    order(Arel.sql("geometry <-> ST_Geomfromtext('#{point.as_text}')"))
+    order(Arel.sql("geometry <-> ST_Geomfromtext('#{sanitize_sql(point.as_text)}')"))
   end
 end
