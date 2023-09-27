@@ -3,7 +3,7 @@ ARM_TEMPLATE_TAG=1.1.10
 RG_TAGS={"Product" : "Teacher services cloud"}
 REGION=UK South
 SERVICE_NAME=teaching-school-hub-finder
-SERVICE_SHORT=tshf
+SERVICE_SHORT=cpdtsh
 DOCKER_REPOSITORY=ghcr.io/dfe-digital/teaching-school-hub-finder
 
 help:
@@ -12,6 +12,10 @@ help:
 .PHONY: development
 development: test-cluster
 	$(eval include global_config/development.sh)
+
+.PHONY: staging
+staging: test-cluster
+	$(eval include global_config/staging.sh)
 
 production: production-cluster
 	$(if $(or ${SKIP_CONFIRM}, ${CONFIRM_PRODUCTION}), , $(error Missing CONFIRM_PRODUCTION=yes))
