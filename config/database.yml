@@ -15,12 +15,13 @@
 # gem "pg"
 #
 default: &default
-  adapter: postgis
   encoding: unicode
   url: <%= ENV['DATABASE_URL'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['DATABASE_URL'].gsub(/^postgres:/, 'postgis:') rescue "connectionerrordev" %>
+  adapter: postgis
 
 development:
   <<: *default
@@ -82,6 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: teaching_school_hub_finder_production
-  username: teaching_school_hub_finder
-  password: <%= ENV["TEACHING_SCHOOL_HUB_FINDER_DATABASE_PASSWORD"] %>
+    # database: teaching_school_hub_finder_production
+    # username: teaching_school_hub_finder
+    # password: <%= ENV["TEACHING_SCHOOL_HUB_FINDER_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'].gsub(/^postgres:/, 'postgis:') rescue "connectionerror" %>

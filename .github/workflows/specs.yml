@@ -4,6 +4,8 @@ on: [push]
 
 env:
   RAILS_ENV: test
+  GOOGLE_MAP_API_KEY: notusedinspecs
+  SECRET_KEY_BASE: notusedinspecs
 
 jobs:
   rspec:
@@ -34,6 +36,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.20.0'
+
+      - name: Install dependencies
+        run: sudo apt-get install -y libproj-dev proj-bin
 
       - name: Set up ruby gem cache
         uses: actions/cache@v3
@@ -102,6 +107,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
+      - name: Install dependencies
+        run: sudo apt-get install -y libproj-dev proj-bin
+
       - name: Install gems
         run: |
           bundle config path vendor/bundle
@@ -138,6 +146,9 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
+
+      - name: Install dependencies
+        run: sudo apt-get install -y libproj-dev proj-bin
 
       - name: Install gems
         run: |

@@ -3,8 +3,11 @@ Rails.application.routes.draw do
 
   get "/search", to: "search#form"
   get "/search/results", to: "search#results"
+  get "/search/validate", to: "search#validate"
 
   get "/pages/home", to: "pages#home"
+  get "/pages/privacy-policy", to: "pages#privacy_policy"
+  get "/pages/cookies", to: "pages#cookies"
 
   scope via: :all do
     get '/404', to: 'errors#not_found'
