@@ -4,6 +4,8 @@ on: [push]
 
 env:
   RAILS_ENV: test
+  GOOGLE_MAP_API_KEY: notusedinspecs
+  SECRET_KEY_BASE: notusedinspecs
 
 jobs:
   rspec:
