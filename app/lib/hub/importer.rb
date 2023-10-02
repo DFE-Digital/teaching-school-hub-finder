@@ -36,11 +36,11 @@ class Hub::Importer
 
     read_file(@path) do |data|
       Hub.create!(
-        name: data['Teaching School Hub name'],
-        phone: data['Contact phone number'],
-        email: data['Email address'],
-        website: data['TSH website, where available'],
-        areas: get_local_authorities(data['Teaching School Hub area'].split(' - ').last)
+        name: data['name'],
+        phone: data['phone'],
+        email: data['email'],
+        website: data['website'],
+        areas: get_local_authorities(data['areas'])
       )
     end
   end
@@ -55,7 +55,7 @@ class Hub::Importer
     end
     inversed_map = @authorities_with_comas_map.invert
 
-    mapped.split(', ').map do |str|
+    mapped.split(';').map do |str|
       inversed_map[str] || str
     end
   end
