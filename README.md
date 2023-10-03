@@ -12,6 +12,10 @@ This project depends on:
   - [Yarn](https://yarnpkg.com/)
   - [Postgres](https://www.postgresql.org/)
 
+### Updating Hub File
+
+When updating the `db/data/hubs.csv` file, please make sure to run `rails r 'Hub::Importer.new.reload!'` locally first to make sure all changes were applied.
+
 ### Linting
 
 To run the linters:
