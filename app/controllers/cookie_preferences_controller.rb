@@ -1,6 +1,6 @@
 class CookiePreferencesController < ApplicationController
   def create
-    @form = Forms::CookiePreferences.new(cookie_preferences_params)
+    @form = CookiePreferences.new(cookie_preferences_params)
 
     if @form.valid?
       cookies["consented-to-cookies"] = {
