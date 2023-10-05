@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   def privacy_policy
   end
 
-  def cookies
+  def cookies_policy
   end
 end
