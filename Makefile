@@ -13,6 +13,13 @@ help:
 development: test-cluster
 	$(eval include global_config/development.sh)
 
+.PHONY: review
+review: test-cluster ## Specify review AKS environment
+	# PULL_REQUEST_NUMBER is set by the GitHub action
+	$(if $(PULL_REQUEST_NUMBER), , $(error Missing environment variable "PULL_REQUEST_NUMBER"))
+	$(eval include global_config/review.sh)
+	$(eval export TF_VAR_pull_request_number=-$(PULL_REQUEST_NUMBER))
+
 .PHONY: staging
 staging: test-cluster
 	$(eval include global_config/staging.sh)
@@ -129,3 +136,10 @@ aks-console: get-cluster-credentials
 aks-ssh: get-cluster-credentials
 	$(if $(PULL_REQUEST_NUMBER), $(eval export APP_ID=review-$(PULL_REQUEST_NUMBER)) , $(eval export APP_ID=$(CONFIG_LONG)))
 	kubectl -n ${NAMESPACE} exec -ti --tty deployment/teaching-school-hub-finder-${APP_ID} -- /bin/sh
+
+.PHONY: install-konduit
+install-konduit: ## Install the konduit script, for accessing backend services
+	[ ! -f bin/konduit.sh ] \
+		&& curl -s https://raw.githubusercontent.com/DFE-Digital/teacher-services-cloud/master/scripts/konduit.sh -o bin/konduit.sh \
+		&& chmod +x bin/konduit.sh \
+		|| true
