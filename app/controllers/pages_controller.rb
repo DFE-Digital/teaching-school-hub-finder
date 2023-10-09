@@ -7,4 +7,10 @@ class PagesController < ApplicationController
 
   def cookies_policy
   end
+
+  def accessibility
+  end
+
+  def terms
+  end
 end
