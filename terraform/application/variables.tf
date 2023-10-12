@@ -51,6 +51,16 @@ variable "enable_monitoring" {
   description = "Enable monitoring and alerting"
 }
 
+variable "domain" {
+    type = string
+    default = ""
+}
+
+variable "app_suffix" {
+    type = string
+    default = ""
+}
+
 locals {
   azure_credentials = try(jsondecode(var.azure_credentials_json), null)
 

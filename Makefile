@@ -19,6 +19,9 @@ review: test-cluster ## Specify review AKS environment
 	$(if $(PULL_REQUEST_NUMBER), , $(error Missing environment variable "PULL_REQUEST_NUMBER"))
 	$(eval include global_config/review.sh)
 	$(eval export TF_VAR_pull_request_number=-$(PULL_REQUEST_NUMBER))
+	$(eval backend_config=-backend-config="key=terraform-$(PULL_REQUEST_NUMBER).tfstate")
+	$(eval export TF_VAR_app_suffix=-$(PULL_REQUEST_NUMBER))
+	$(eval export TF_VAR_uploads_storage_account_name=$(AZURE_RESOURCE_PREFIX)$(SERVICE_SHORT)rv$(PULL_REQUEST_NUMBER)sa)
 
 .PHONY: staging
 staging: test-cluster
@@ -56,7 +59,7 @@ terraform-init: composed-variables bin/terrafile set-azure-account
 	terraform -chdir=terraform/application init -upgrade -reconfigure \
 		-backend-config=resource_group_name=${RESOURCE_GROUP_NAME} \
 		-backend-config=storage_account_name=${STORAGE_ACCOUNT_NAME} \
-		-backend-config=key=${ENVIRONMENT}_kubernetes.tfstate
+		-backend-config=key=${ENVIRONMENT}_kubernetes.tfstate $(backend_config)
 
 	$(eval export TF_VAR_azure_resource_prefix=${AZURE_RESOURCE_PREFIX})
 	$(eval export TF_VAR_config_short=${CONFIG_SHORT})
