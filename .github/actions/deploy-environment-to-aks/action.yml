@@ -57,5 +57,5 @@ runs:
       shell: bash
       run: |
         az aks get-credentials --resource-group s189t01-tsc-ts-rg --name s189t01-tsc-test-aks
-        kubectl exec -n cpd-development deployment/cpd-tsh-review-${{ inputs.pull-request-number }}-web -- sh -c "cd /app && /usr/local/bin/bundle exec rails db:seed"
+        kubectl exec -n cpd-development deployment/cpd-tsh-review-${{ inputs.pull-request-number }} -- sh -c "cd /app && /usr/local/bin/bundle exec rails db:seed"
 
