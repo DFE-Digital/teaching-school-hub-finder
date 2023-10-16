@@ -18,11 +18,12 @@ module "application_configuration" {
   is_rails_application = true
 
   config_variables = {
-    ENVIRONMENT_NAME = var.environment
-    PGSSLMODE        = local.postgres_ssl_mode
+    ENVIRONMENT_NAME    = var.environment
+    PGSSLMODE           = local.postgres_ssl_mode
     DOMAIN              = local.domain
     GOVUK_WEBSITE_ROOT  = local.domain
     GOVUK_APP_DOMAIN    = local.domain
+    RAILS_ENV           = var.environment
   }
   secret_variables = {
     DATABASE_URL = module.postgres.url
