@@ -27,6 +27,10 @@ review: test-cluster ## Specify review AKS environment
 staging: test-cluster
 	$(eval include global_config/staging.sh)
 
+.PHONY: sandbox
+sandbox: production-cluster
+	$(eval include global_config/sandbox.sh)
+
 production: production-cluster
 	$(if $(or ${SKIP_CONFIRM}, ${CONFIRM_PRODUCTION}), , $(error Missing CONFIRM_PRODUCTION=yes))
 	$(eval include global_config/production.sh)
