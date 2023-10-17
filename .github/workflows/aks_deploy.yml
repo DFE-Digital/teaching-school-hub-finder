@@ -32,6 +32,8 @@ jobs:
     name: Run Rspec
 
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_MAP_API_KEY: someapikey
 
     services:
       postgres:
@@ -102,7 +104,6 @@ jobs:
       - name: Run tests
         run: bundle exec rake
         env:
-          GOOGLE_MAP_API_KEY: someapikey
           DATABASE_URL: postgis://postgres:password@localhost:5432/test
   linting:
     name: Run Rubocop
