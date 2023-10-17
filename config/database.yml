@@ -26,7 +26,3 @@ sandbox:
 
 production:
   <<: *default
-    # database: teaching_school_hub_finder_production
-    # username: teaching_school_hub_finder
-    # password: <%= ENV["TEACHING_SCHOOL_HUB_FINDER_DATABASE_PASSWORD"] %>
-  url: <%= ENV['DATABASE_URL'].gsub(/^postgres:/, 'postgis:') rescue "connectionerror" %>
