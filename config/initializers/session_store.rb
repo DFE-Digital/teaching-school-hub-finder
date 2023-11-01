@@ -1,3 +1,3 @@
 Rails.application.configure do
-  config.session_store :cookie_store, key: "_tshf_session"
+  Rails.application.config.session_store :disabled
 end
