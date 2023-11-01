@@ -4,7 +4,6 @@ RG_TAGS={"Product" : "Find a teaching school hub"}
 REGION=UK South
 SERVICE_NAME=teaching-school-hub-finder
 SERVICE_SHORT=cpdtsh
-DOCKER_REPOSITORY=ghcr.io/dfe-digital/teaching-school-hub-finder
 
 help:
 	@grep -E '^[a-zA-Z\._\-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
