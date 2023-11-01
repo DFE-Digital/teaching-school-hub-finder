@@ -1,5 +1,9 @@
 # README
 
+## About
+
+Live version of the service can be find here: https://find-a-teaching-school-hub.education.gov.uk/
+
 ## Setup
 
 ### Prerequisites
