@@ -1,0 +1,299 @@
+name: "Deploy"
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Deploy environment"
+        required: true
+        default: review_aks
+        type: environment
+        options:
+          - review_aks
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+    types:
+      - labeled
+      - synchronize
+      - reopened
+      - opened
+
+jobs:
+  rspec:
+    name: Run Rspec
+
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_MAP_API_KEY: someapikey
+
+    services:
+      postgres:
+        image: postgis/postgis:11-3.3-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.2
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.20.0'
+
+      - name: Update dependencies
+        run: sudo apt-get update
+
+      - name: Install dependencies
+        run: sudo apt-get install -y libproj-dev proj-bin
+
+      - name: Set up ruby gem cache
+        uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Install gems
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Install yarn
+        run: npm install yarn -g
+
+      - name: Yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Set up yarn cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install node.js dependencies
+        run: yarn install
+
+      - name: Set up test database
+        run: bin/rails db:create db:schema:load
+        env:
+          DATABASE_URL: postgis://postgres:password@localhost:5432/test
+
+      - name: Run tests
+        run: bundle exec rake
+        env:
+          DATABASE_URL: postgis://postgres:password@localhost:5432/test
+  linting:
+    name: Run Rubocop
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.2
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.20.0'
+
+      - name: Set up ruby gem cache
+        uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Update dependencies
+        run: sudo apt-get update
+
+      - name: Install dependencies
+        run: sudo apt-get install -y libproj-dev proj-bin
+
+      - name: Install gems
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Install node.js dependencies
+        run: yarn install
+
+      - name: Run rubocop
+        run: bundle exec rubocop --format clang --parallel
+
+  brakeman:
+    name: Run Brakeman
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.2
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.20.0'
+
+      - name: Set up ruby gem cache
+        uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Update dependencies
+        run: sudo apt-get update
+
+      - name: Install dependencies
+        run: sudo apt-get install -y libproj-dev proj-bin
+
+      - name: Install gems
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Run brakeman
+        run: bundle exec brakeman
+
+  docker:
+    name: Build and push Docker image
+    runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
+    outputs:
+      docker-image: ${{ steps.build-docker-image.outputs.image }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: DFE-Digital/github-actions/build-docker-image@master
+        id: build-docker-image
+        with:
+          docker-repository: ghcr.io/dfe-digital/teaching-school-hub-finder
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  permit-merge:
+    name: Permit merge
+    needs: [linting, rspec, brakeman]
+    runs-on: ubuntu-latest
+    steps:
+      - run: "echo 'Linting and tests passed, this branch is ready to be merged'"
+
+  deploy_review:
+    name: Deploy review
+    concurrency: deploy_review_${{ github.event.pull_request.number }}
+    if: github.actor != 'dependabot[bot]' && github.event_name == 'pull_request'
+    needs: [docker, linting]
+    runs-on: ubuntu-latest
+    environment:
+      name: review
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./.github/actions/deploy-environment-to-aks
+        id: deploy
+        with:
+          environment: review
+          docker-image: ${{ needs.docker.outputs.docker-image }}
+          azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          pull-request-number: ${{ github.event.pull_request.number }}
+          current-commit-sha: ${{ github.event.pull_request.head.sha }}
+
+      - name: Post sticky pull request comment
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            Review app deployed to ${{ steps.deploy.outputs.url }}
+
+  deploy_staging:
+    name: Deploy staging
+    needs: [docker, rspec, linting, brakeman]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: staging
+    outputs:
+      docker-image: ${{ needs.docker.outputs.docker-image }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./.github/actions/deploy-environment-to-aks
+        id: deploy
+        with:
+          environment: staging
+          docker-image: ${{ needs.docker.outputs.docker-image }}
+          azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          current-commit-sha: ${{ github.sha }}
+          statuscake-api-token: ${{ secrets.STATUSCAKE_API_TOKEN }}
+
+  deploy_sandbox:
+    name: Deploy sandbox
+    needs: [deploy_staging]
+    runs-on: ubuntu-latest
+    environment:
+      name: sandbox
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./.github/actions/deploy-environment-to-aks
+        id: deploy
+        with:
+          environment: sandbox
+          docker-image: ${{ needs.deploy_staging.outputs.docker-image }}
+          azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          current-commit-sha: ${{ github.sha }}
+          statuscake-api-token: ${{ secrets.STATUSCAKE_API_TOKEN }}
+
+  deploy_production:
+    name: Deploy production
+    needs: [deploy_staging]
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./.github/actions/deploy-environment-to-aks
+        id: deploy
+        with:
+          environment: production
+          docker-image: ${{ needs.deploy_staging.outputs.docker-image }}
+          azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          current-commit-sha: ${{ github.sha }}
+          statuscake-api-token: ${{ secrets.STATUSCAKE_API_TOKEN }}

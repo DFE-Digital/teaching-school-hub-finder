@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/pages/cookies", to: "pages#cookies_policy"
   get "/pages/accessibility", to: "pages#accessibility"
   get "/pages/terms", to: "pages#terms"
+  get "/healthcheck", to: "pages#healthcheck"
 
   scope via: :all do
     get '/404', to: 'errors#not_found'
