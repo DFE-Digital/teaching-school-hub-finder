@@ -41,7 +41,7 @@ RUN yarn install --frozen-lockfile --check-files
 # Copy all files to /app (except what is defined in .dockerignore)
 COPY . .
 
-ENV GOOGLE_MAP_API_KEY="just-for-assets"
+ENV ORDNANCE_SURVEY_API_KEY="just-for-assets"
 # Precompile assets
 RUN RAILS_ENV=production SECRET_KEY_BASE=required-to-run-but-not-used \
     bundle exec rails assets:precompile

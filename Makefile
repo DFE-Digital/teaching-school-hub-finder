@@ -135,7 +135,7 @@ get-cluster-credentials: set-azure-account
 
 aks-console: get-cluster-credentials
 	$(if $(PULL_REQUEST_NUMBER), $(eval export APP_ID=review-$(PULL_REQUEST_NUMBER)) , $(eval export APP_ID=$(CONFIG_LONG)))
-	kubectl -n ${NAMESPACE} exec -ti --tty deployment/teaching-school-hub-finder-${APP_ID} -- /bin/sh -c "cd /app && bundle exec rails c"
+	kubectl -n ${NAMESPACE} exec -ti --tty deployment/cpd-tsh-${APP_ID} -- /bin/sh -c "cd /app && bundle exec rails c"
 
 aks-ssh: get-cluster-credentials
 	$(if $(PULL_REQUEST_NUMBER), $(eval export APP_ID=review-$(PULL_REQUEST_NUMBER)) , $(eval export APP_ID=$(CONFIG_LONG)))

@@ -19,7 +19,7 @@ class LocalAuthority::Search
   end
 
   def geo_result
-    @geo_result ||= Geocoder.search("#{@query}, UK", params: {limit: 1, polygon_geojson: 1, countrycodes: 'gb'}).first
+    @geo_result ||= Geocoder.search("#{@query}, UK").first
   end
 
   def search_polygon

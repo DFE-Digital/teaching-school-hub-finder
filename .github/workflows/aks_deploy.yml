@@ -33,7 +33,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      GOOGLE_MAP_API_KEY: someapikey
+      ORDNANCE_SURVEY_API_KEY: someapikey
 
     services:
       postgres:
