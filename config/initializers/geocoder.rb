@@ -1,1 +1,1 @@
-Geocoder.configure(lookup: :google, api_key: ENV.fetch('GOOGLE_MAP_API_KEY'))
+Geocoder.configure(lookup: :uk_ordnance_survey_names, api_key: ENV.fetch('ORDNANCE_SURVEY_API_KEY'))
