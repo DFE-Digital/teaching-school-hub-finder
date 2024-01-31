@@ -2,7 +2,7 @@ TERRAFILE_VERSION=0.8
 ARM_TEMPLATE_TAG=1.1.10
 RG_TAGS={"Product" : "Find a teaching school hub"}
 REGION=UK South
-SERVICE_NAME=teaching-school-hub-finder
+SERVICE_NAME=cpd-tsh
 SERVICE_SHORT=cpdtsh
 
 help:
