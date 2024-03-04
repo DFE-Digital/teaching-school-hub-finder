@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'search#form'
 
   get "/search", to: "search#form"
   get "/search/validate", to: "search#validate"
