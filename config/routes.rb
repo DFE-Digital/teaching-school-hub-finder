@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'search#form'
 
   get "/search", to: "search#form"
-  get "/search/results", to: "search#results"
   get "/search/validate", to: "search#validate"
+  get "/search/results", to: "search#results"
 
   get "/pages/home", to: "pages#home"
   get "/pages/privacy-policy", to: "pages#privacy_policy"
