@@ -48,4 +48,6 @@ group :test, :development do
   gem "brakeman", require: false
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rubocop-govuk', require: false
+  gem 'vcr'
+  gem 'webmock'
 end

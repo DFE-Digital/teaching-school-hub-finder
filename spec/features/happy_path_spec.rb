@@ -11,12 +11,14 @@ RSpec.feature "Happy path", type: :feature do
   end
 
   scenario "Performs search" do
-    visit root_path
-    click_link("Start now")
-    expect(page).to have_text("Where do you want to find teaching school hubs?")
-    fill_in "Where do you want to find teaching school hubs?", with: "Luton"
-    click_button('Continue')
-    hubs = all('h3 a').map(&:text)
-    expect(hubs).to eq(expected_hubs_names)
+    VCR.use_cassette("geocoder") do
+      visit root_path
+      click_link("Start now")
+      expect(page).to have_text("Where do you want to find teaching school hubs?")
+      fill_in "Where do you want to find teaching school hubs?", with: "Luton"
+      click_button('Continue')
+      hubs = all('h3 a').map(&:text)
+      expect(hubs).to eq(expected_hubs_names)
+    end
   end
 end
