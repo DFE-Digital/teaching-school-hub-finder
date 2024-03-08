@@ -25,7 +25,6 @@ class LocalAuthority::Search
   def search_polygon
     return @search_polygon if defined? @search_polygon
 
-    #binding.pry
     json = geo_result && geo_result.data['geojson']
     return @search_polygon = nil unless json
 

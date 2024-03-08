@@ -31,6 +31,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem "capybara-screenshot"
   gem "selenium-webdriver"
   gem "shoulda-matchers"
   gem "webdrivers"
@@ -47,4 +48,6 @@ group :test, :development do
   gem "brakeman", require: false
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rubocop-govuk', require: false
+  gem 'vcr'
+  gem 'webmock'
 end

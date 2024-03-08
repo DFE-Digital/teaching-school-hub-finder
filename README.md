@@ -20,6 +20,14 @@ This project depends on:
 
 When updating the `db/data/hubs.csv` file, please make sure to run `rails r 'Hub::Importer.new.reload!'` locally first to make sure all changes were applied.
 
+## Testing
+
+### Mocking with VCR for feature specs
+
+Your default test geocoder key should be `ORDNANCE_SURVEY_API_KEY='geocoderkey'`, and its VERY IMPORTANT not to leak
+key to the repository. This key is being set in github actions as well.
+Every time you re-record VCR cassete, you need to modify the key.
+
 ### Linting
 
 To run the linters:
