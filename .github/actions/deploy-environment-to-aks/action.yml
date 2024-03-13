@@ -27,7 +27,7 @@ runs:
   using: composite
 
   steps:
-    - uses: hashicorp/setup-terraform@v1
+    - uses: hashicorp/setup-terraform@v3
       with:
         terraform_version: 1.5.4
         terraform_wrapper: false
@@ -47,7 +47,7 @@ runs:
         DOCKER_IMAGE: ${{ inputs.docker-image }}
         PULL_REQUEST_NUMBER: ${{ inputs.pull-request-number }}
 
-    - uses: Azure/login@v1
+    - uses: Azure/login@v2
       with:
         creds: ${{ inputs.azure-credentials }}
 
