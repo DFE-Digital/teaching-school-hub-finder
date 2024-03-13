@@ -1,14 +1,14 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby "3.3.0"
 
 gem "activerecord-postgis-adapter"
 gem "bootsnap", require: false
 gem "bundler", "~> 2.4"
 gem 'geocoder'
 gem "pg", "~> 1.1"
-gem "puma", "~> 5.0"
+gem "puma", "~> 6.4"
 gem "rails", "~> 7.0.8"
 gem "rgeo"
 gem "rgeo-geojson"
