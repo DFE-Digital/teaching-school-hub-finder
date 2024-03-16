@@ -9,7 +9,7 @@ gem "bundler", "~> 2.4"
 gem 'geocoder'
 gem "pg", "~> 1.1"
 gem "puma", "~> 6.4"
-gem "rails", "~> 7.0.8"
+gem "rails", "~> 7.1.3"
 gem "rgeo"
 gem "rgeo-geojson"
 gem "rgeo-proj4"
