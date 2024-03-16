@@ -26,6 +26,7 @@ on:
       - synchronize
       - reopened
       - opened
+  merge_group:
 
 jobs:
   rspec:
