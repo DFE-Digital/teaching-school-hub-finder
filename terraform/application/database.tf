@@ -14,6 +14,7 @@ module "postgres" {
   server_version              = "14"
   server_docker_image         = "postgis/postgis:14-3.4"
   azure_extensions            = ["POSTGIS"]
+  azure_sku_name              = var.postgres_flexible_server_sku
 }
 
 

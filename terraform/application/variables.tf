@@ -47,6 +47,10 @@ variable "enable_monitoring" {
   description = "Enable monitoring and alerting"
 }
 
+variable "postgres_flexible_server_sku" {
+  default = "B_Standard_B1ms"
+}
+
 variable "domain" {
     type = string
     default = ""
