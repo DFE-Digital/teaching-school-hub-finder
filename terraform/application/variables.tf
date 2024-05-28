@@ -57,6 +57,11 @@ variable "app_suffix" {
     default = ""
 }
 
+variable "app_replicas" {
+  description = "Number of replicas"
+  default = 1
+}
+
 locals {
   postgres_ssl_mode = var.enable_postgres_ssl ? "require" : "disable"
 }

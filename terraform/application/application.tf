@@ -42,4 +42,6 @@ module "web_application" {
   kubernetes_secret_name     = module.application_configuration.kubernetes_secret_name
 
   docker_image = var.docker_image
+
+  replicas = var.app_replicas
 }
