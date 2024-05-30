@@ -53,18 +53,20 @@ variable "postgres_flexible_server_sku" {
 
 variable "domain" {
     type = string
-    default = ""
+  default = ""
 }
 
 variable "app_suffix" {
     type = string
-    default = ""
+  default = ""
 }
 
 variable "app_replicas" {
   description = "Number of replicas"
   default = 1
 }
+
+variable "enable_logit" { default = false }
 
 locals {
   postgres_ssl_mode = var.enable_postgres_ssl ? "require" : "disable"
