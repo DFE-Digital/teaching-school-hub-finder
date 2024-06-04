@@ -10,6 +10,7 @@ gem 'geocoder'
 gem "pg", "~> 1.1"
 gem "puma", "~> 6.4"
 gem "rails", "~> 7.1.3"
+gem "rails_semantic_logger"
 gem "rgeo"
 gem "rgeo-geojson"
 gem "rgeo-proj4"
@@ -38,6 +39,7 @@ group :test do
 end
 
 group :test, :development do
+  gem "amazing_print"
   gem "byebug"
   gem "dotenv-rails"
   gem "pry"
