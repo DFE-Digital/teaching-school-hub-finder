@@ -7,7 +7,7 @@ FROM ruby:3.3.2-alpine as builder
 
 RUN apk -U upgrade && \
     apk add --update --no-cache gcc git libc6-compat libc-dev make nodejs \
-    postgresql13-dev yarn
+    postgresql14-dev yarn
 
 WORKDIR /app
 
