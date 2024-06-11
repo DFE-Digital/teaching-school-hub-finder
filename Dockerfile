@@ -19,7 +19,7 @@ RUN apk add --update --no-cache tzdata && \
 # build-base: dependencies for bundle
 # yarn: node package manager
 # postgresql-dev: postgres driver and libraries
-RUN apk add --no-cache build-base yarn postgresql13-dev
+RUN apk add --no-cache build-base yarn postgresql14-dev
 RUN apk add --no-cache proj-dev
 #RUN apk add --no-cache libproj-dev proj-bin
 
