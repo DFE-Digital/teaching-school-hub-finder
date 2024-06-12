@@ -48,7 +48,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.0
+          ruby-version: 3.3.2
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -113,7 +113,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.0
+          ruby-version: 3.3.2
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -157,7 +157,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.0
+          ruby-version: 3.3.2
 
       - name: Set up Node
         uses: actions/setup-node@v4
