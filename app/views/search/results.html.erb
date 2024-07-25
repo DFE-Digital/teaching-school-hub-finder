@@ -19,7 +19,7 @@
   <div class="govuk-grid-column-two-thirds hub-results">
     <% @search.hubs.each do |hub| %>
       <div class="hub-result">
-        <h3 class="govuk-heading-m">
+        <h2 class="govuk-heading-m">
           <% if hub.website %>
             <%
               address = hub.website
@@ -29,7 +29,7 @@
           <% else %>
             <%= hub.name %>
           <% end %>
-        </h3>
+        </h2>
         <p>Email: <%= mail_to hub.email %></p>
         <% if hub.phone.present? %>
           <p>Phone: <%= phone_to hub.phone %></p>
