@@ -1,3 +1,6 @@
+<%= content_for(:page_title) do %>
+  Search teaching school hub
+<% end %>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= form_with model: @search, url: { action: :results }, scope: '', method: :get do |f|%>
