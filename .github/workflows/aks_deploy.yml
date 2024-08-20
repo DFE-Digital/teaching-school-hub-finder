@@ -200,6 +200,7 @@ jobs:
         with:
           docker-repository: ghcr.io/dfe-digital/teaching-school-hub-finder
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          context: .
 
   permit-merge:
     name: Permit merge
