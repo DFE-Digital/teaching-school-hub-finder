@@ -5,6 +5,8 @@ class LocalAuthority::Search
   end
 
   def call
+    return [] if geo_result.nil?
+
     result = @scope.order_by_distance_from(search_centre)
 
     if search_polygon

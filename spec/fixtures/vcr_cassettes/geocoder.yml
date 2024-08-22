@@ -15,11 +15,75 @@ http_interactions:
       - Ruby
   response:
     status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Fri, 23 Aug 2024 09:45:34 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '90'
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"fault":{"faultstring":"Invalid ApiKey","detail":{"errorcode":"oauth.v2.InvalidApiKey"}}}'
+  recorded_at: Fri, 23 Aug 2024 09:45:33 GMT
+- request:
+    method: get
+    uri: https://api.os.uk/search/names/v1/find?fq=local_type:City%20local_type:Hamlet%20local_type:Other_Settlement%20local_type:Town%20local_type:Village%20local_type:Postcode&key=geocoderkey&query=Luton,%20UK
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Fri, 23 Aug 2024 09:46:06 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '90'
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"fault":{"faultstring":"Invalid ApiKey","detail":{"errorcode":"oauth.v2.InvalidApiKey"}}}'
+  recorded_at: Fri, 23 Aug 2024 09:46:06 GMT
+- request:
+    method: get
+    uri: https://api.os.uk/search/names/v1/find?fq=local_type:City%20local_type:Hamlet%20local_type:Other_Settlement%20local_type:Town%20local_type:Village%20local_type:Postcode&key=cga0RlSJPHE5rwucfmsVF3EeQyKUdWAQ&query=Luton,%20UK
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 07 Mar 2024 11:38:15 GMT
+      - Fri, 23 Aug 2024 09:47:14 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -150,5 +214,307 @@ http_interactions:
             }
           } ]
         }
-  recorded_at: Thu, 07 Mar 2024 11:38:13 GMT
+  recorded_at: Fri, 23 Aug 2024 09:47:14 GMT
+- request:
+    method: get
+    uri: https://api.os.uk/search/names/v1/find?fq=local_type:City%20local_type:Hamlet%20local_type:Other_Settlement%20local_type:Town%20local_type:Village%20local_type:Postcode&key=cga0RlSJPHE5rwucfmsVF3EeQyKUdWAQ&query=Luton,%20UK
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 23 Aug 2024 09:47:15 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin,Accept-Encoding,key
+      Omse-Category:
+      - open
+      Omse-Transaction-Count:
+      - '60'
+      Omse-Premium-Count:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - origin, x-requested-with, accept, key, authorization, content-type
+      Access-Control-Max-Age:
+      - '3628800'
+      Access-Control-Allow-Methods:
+      - GET, POST
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "header" : {
+            "uri" : "https://api.os.uk/search/names/v1/find?fq=local_type%3ACity%20local_type%3AHamlet%20local_type%3AOther_Settlement%20local_type%3ATown%20local_type%3AVillage%20local_type%3APostcode&query=Luton%2C%20UK",
+            "query" : "Luton, UK",
+            "format" : "JSON",
+            "maxresults" : 100,
+            "offset" : 0,
+            "totalresults" : 3,
+            "filter" : "fq=local_type:City local_type:Hamlet local_type:Other_Settlement local_type:Town local_type:Village local_type:Postcode"
+          },
+          "results" : [ {
+            "GAZETTEER_ENTRY" : {
+              "ID" : "osgb4000000074572547",
+              "NAMES_URI" : "http://data.ordnancesurvey.co.uk/id/4000000074572547",
+              "NAME1" : "Luton",
+              "TYPE" : "populatedPlace",
+              "LOCAL_TYPE" : "Town",
+              "GEOMETRY_X" : 509031.0,
+              "GEOMETRY_Y" : 221292.0,
+              "MOST_DETAIL_VIEW_RES" : 74000,
+              "LEAST_DETAIL_VIEW_RES" : 2000000,
+              "MBR_XMIN" : 501743.0,
+              "MBR_YMIN" : 219219.0,
+              "MBR_XMAX" : 513063.0,
+              "MBR_YMAX" : 226739.0,
+              "POSTCODE_DISTRICT" : "LU1",
+              "POSTCODE_DISTRICT_URI" : "http://data.ordnancesurvey.co.uk/id/postcodedistrict/LU1",
+              "COUNTY_UNITARY" : "Luton",
+              "COUNTY_UNITARY_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000037536",
+              "COUNTY_UNITARY_TYPE" : "http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority",
+              "REGION" : "Eastern",
+              "REGION_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000041425",
+              "COUNTRY" : "England",
+              "COUNTRY_URI" : "http://data.ordnancesurvey.co.uk/id/country/england",
+              "SAME_AS_GEONAMES" : "http://sws.geonames.org/2643339"
+            }
+          }, {
+            "GAZETTEER_ENTRY" : {
+              "ID" : "osgb4000000074555115",
+              "NAMES_URI" : "http://data.ordnancesurvey.co.uk/id/4000000074555115",
+              "NAME1" : "Luton",
+              "TYPE" : "populatedPlace",
+              "LOCAL_TYPE" : "Hamlet",
+              "GEOMETRY_X" : 290123.0,
+              "GEOMETRY_Y" : 76949.0,
+              "MOST_DETAIL_VIEW_RES" : 5000,
+              "LEAST_DETAIL_VIEW_RES" : 25000,
+              "MBR_XMIN" : 289842.0,
+              "MBR_YMIN" : 76681.0,
+              "MBR_XMAX" : 290379.0,
+              "MBR_YMAX" : 77181.0,
+              "POSTCODE_DISTRICT" : "TQ13",
+              "POSTCODE_DISTRICT_URI" : "http://data.ordnancesurvey.co.uk/id/postcodedistrict/TQ13",
+              "DISTRICT_BOROUGH" : "Teignbridge",
+              "DISTRICT_BOROUGH_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000022881",
+              "DISTRICT_BOROUGH_TYPE" : "http://data.ordnancesurvey.co.uk/ontology/admingeo/District",
+              "COUNTY_UNITARY" : "Devon",
+              "COUNTY_UNITARY_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000023147",
+              "COUNTY_UNITARY_TYPE" : "http://data.ordnancesurvey.co.uk/ontology/admingeo/County",
+              "REGION" : "South West",
+              "REGION_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000041427",
+              "COUNTRY" : "England",
+              "COUNTRY_URI" : "http://data.ordnancesurvey.co.uk/id/country/england",
+              "SAME_AS_GEONAMES" : "http://sws.geonames.org/2643340"
+            }
+          }, {
+            "GAZETTEER_ENTRY" : {
+              "ID" : "osgb4000000074575309",
+              "NAMES_URI" : "http://data.ordnancesurvey.co.uk/id/4000000074575309",
+              "NAME1" : "Luton",
+              "TYPE" : "populatedPlace",
+              "LOCAL_TYPE" : "Hamlet",
+              "GEOMETRY_X" : 308265.0,
+              "GEOMETRY_Y" : 102797.0,
+              "MOST_DETAIL_VIEW_RES" : 5000,
+              "LEAST_DETAIL_VIEW_RES" : 25000,
+              "MBR_XMIN" : 307858.0,
+              "MBR_YMIN" : 102576.0,
+              "MBR_XMAX" : 308374.0,
+              "MBR_YMAX" : 103076.0,
+              "POSTCODE_DISTRICT" : "EX14",
+              "POSTCODE_DISTRICT_URI" : "http://data.ordnancesurvey.co.uk/id/postcodedistrict/EX14",
+              "DISTRICT_BOROUGH" : "East Devon",
+              "DISTRICT_BOROUGH_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000022713",
+              "DISTRICT_BOROUGH_TYPE" : "http://data.ordnancesurvey.co.uk/ontology/admingeo/District",
+              "COUNTY_UNITARY" : "Devon",
+              "COUNTY_UNITARY_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000023147",
+              "COUNTY_UNITARY_TYPE" : "http://data.ordnancesurvey.co.uk/ontology/admingeo/County",
+              "REGION" : "South West",
+              "REGION_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000041427",
+              "COUNTRY" : "England",
+              "COUNTRY_URI" : "http://data.ordnancesurvey.co.uk/id/country/england"
+            }
+          } ]
+        }
+  recorded_at: Fri, 23 Aug 2024 09:47:14 GMT
+- request:
+    method: get
+    uri: https://api.os.uk/search/names/v1/find?fq=local_type:City%20local_type:Hamlet%20local_type:Other_Settlement%20local_type:Town%20local_type:Village%20local_type:Postcode&key=cga0RlSJPHE5rwucfmsVF3EeQyKUdWAQ&query=Luton,%20UK
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 23 Aug 2024 09:47:15 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin,Accept-Encoding,key
+      Omse-Category:
+      - open
+      Omse-Transaction-Count:
+      - '60'
+      Omse-Premium-Count:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - origin, x-requested-with, accept, key, authorization, content-type
+      Access-Control-Max-Age:
+      - '3628800'
+      Access-Control-Allow-Methods:
+      - GET, POST
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "header" : {
+            "uri" : "https://api.os.uk/search/names/v1/find?fq=local_type%3ACity%20local_type%3AHamlet%20local_type%3AOther_Settlement%20local_type%3ATown%20local_type%3AVillage%20local_type%3APostcode&query=Luton%2C%20UK",
+            "query" : "Luton, UK",
+            "format" : "JSON",
+            "maxresults" : 100,
+            "offset" : 0,
+            "totalresults" : 3,
+            "filter" : "fq=local_type:City local_type:Hamlet local_type:Other_Settlement local_type:Town local_type:Village local_type:Postcode"
+          },
+          "results" : [ {
+            "GAZETTEER_ENTRY" : {
+              "ID" : "osgb4000000074572547",
+              "NAMES_URI" : "http://data.ordnancesurvey.co.uk/id/4000000074572547",
+              "NAME1" : "Luton",
+              "TYPE" : "populatedPlace",
+              "LOCAL_TYPE" : "Town",
+              "GEOMETRY_X" : 509031.0,
+              "GEOMETRY_Y" : 221292.0,
+              "MOST_DETAIL_VIEW_RES" : 74000,
+              "LEAST_DETAIL_VIEW_RES" : 2000000,
+              "MBR_XMIN" : 501743.0,
+              "MBR_YMIN" : 219219.0,
+              "MBR_XMAX" : 513063.0,
+              "MBR_YMAX" : 226739.0,
+              "POSTCODE_DISTRICT" : "LU1",
+              "POSTCODE_DISTRICT_URI" : "http://data.ordnancesurvey.co.uk/id/postcodedistrict/LU1",
+              "COUNTY_UNITARY" : "Luton",
+              "COUNTY_UNITARY_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000037536",
+              "COUNTY_UNITARY_TYPE" : "http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority",
+              "REGION" : "Eastern",
+              "REGION_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000041425",
+              "COUNTRY" : "England",
+              "COUNTRY_URI" : "http://data.ordnancesurvey.co.uk/id/country/england",
+              "SAME_AS_GEONAMES" : "http://sws.geonames.org/2643339"
+            }
+          }, {
+            "GAZETTEER_ENTRY" : {
+              "ID" : "osgb4000000074555115",
+              "NAMES_URI" : "http://data.ordnancesurvey.co.uk/id/4000000074555115",
+              "NAME1" : "Luton",
+              "TYPE" : "populatedPlace",
+              "LOCAL_TYPE" : "Hamlet",
+              "GEOMETRY_X" : 290123.0,
+              "GEOMETRY_Y" : 76949.0,
+              "MOST_DETAIL_VIEW_RES" : 5000,
+              "LEAST_DETAIL_VIEW_RES" : 25000,
+              "MBR_XMIN" : 289842.0,
+              "MBR_YMIN" : 76681.0,
+              "MBR_XMAX" : 290379.0,
+              "MBR_YMAX" : 77181.0,
+              "POSTCODE_DISTRICT" : "TQ13",
+              "POSTCODE_DISTRICT_URI" : "http://data.ordnancesurvey.co.uk/id/postcodedistrict/TQ13",
+              "DISTRICT_BOROUGH" : "Teignbridge",
+              "DISTRICT_BOROUGH_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000022881",
+              "DISTRICT_BOROUGH_TYPE" : "http://data.ordnancesurvey.co.uk/ontology/admingeo/District",
+              "COUNTY_UNITARY" : "Devon",
+              "COUNTY_UNITARY_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000023147",
+              "COUNTY_UNITARY_TYPE" : "http://data.ordnancesurvey.co.uk/ontology/admingeo/County",
+              "REGION" : "South West",
+              "REGION_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000041427",
+              "COUNTRY" : "England",
+              "COUNTRY_URI" : "http://data.ordnancesurvey.co.uk/id/country/england",
+              "SAME_AS_GEONAMES" : "http://sws.geonames.org/2643340"
+            }
+          }, {
+            "GAZETTEER_ENTRY" : {
+              "ID" : "osgb4000000074575309",
+              "NAMES_URI" : "http://data.ordnancesurvey.co.uk/id/4000000074575309",
+              "NAME1" : "Luton",
+              "TYPE" : "populatedPlace",
+              "LOCAL_TYPE" : "Hamlet",
+              "GEOMETRY_X" : 308265.0,
+              "GEOMETRY_Y" : 102797.0,
+              "MOST_DETAIL_VIEW_RES" : 5000,
+              "LEAST_DETAIL_VIEW_RES" : 25000,
+              "MBR_XMIN" : 307858.0,
+              "MBR_YMIN" : 102576.0,
+              "MBR_XMAX" : 308374.0,
+              "MBR_YMAX" : 103076.0,
+              "POSTCODE_DISTRICT" : "EX14",
+              "POSTCODE_DISTRICT_URI" : "http://data.ordnancesurvey.co.uk/id/postcodedistrict/EX14",
+              "DISTRICT_BOROUGH" : "East Devon",
+              "DISTRICT_BOROUGH_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000022713",
+              "DISTRICT_BOROUGH_TYPE" : "http://data.ordnancesurvey.co.uk/ontology/admingeo/District",
+              "COUNTY_UNITARY" : "Devon",
+              "COUNTY_UNITARY_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000023147",
+              "COUNTY_UNITARY_TYPE" : "http://data.ordnancesurvey.co.uk/ontology/admingeo/County",
+              "REGION" : "South West",
+              "REGION_URI" : "http://data.ordnancesurvey.co.uk/id/7000000000041427",
+              "COUNTRY" : "England",
+              "COUNTRY_URI" : "http://data.ordnancesurvey.co.uk/id/country/england"
+            }
+          } ]
+        }
+  recorded_at: Fri, 23 Aug 2024 09:47:15 GMT
 recorded_with: VCR 6.2.0
