@@ -7,6 +7,21 @@
   </div>
 </div>
 
+<div class="govuk-grid-column-two-thirds">
+  <p class="govuk-body-l">
+    <b><%= pluralize(@search.hubs.count, 'result') %> found</b>
+  </p>
+  <% if @search.hubs.count.zero? %>
+    <p class="govuk-body">
+      Check that the location you have entered is in England and:
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a valid first part of a postcode</li>
+        <li>or, a town or city</li>
+      </ul>
+    </p>
+  <% end %>
+</div>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p>
