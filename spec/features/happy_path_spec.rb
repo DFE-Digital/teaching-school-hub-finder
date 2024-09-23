@@ -7,7 +7,7 @@ RSpec.feature "Happy path", type: :feature do
   end
 
   let(:expected_hubs_names) do
-    ["Chiltern Teaching School Hub", "Chiltern Teaching School Hub", "Alban Teaching School Hub"]
+    ["Chiltern Teaching School Hub", "Chiltern Teaching School Hub", "Alban Teaching School Hub", "Astra Teaching School Hub, Buckinghamshire", "Cambridgeshire and Peterborough Teaching School Hub"]
   end
 
   scenario "Performs search" do
