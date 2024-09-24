@@ -1,7 +1,7 @@
 TSH Area,name,website,email,phone,areas
 EE1,Saffron Teaching School Hub,www.saffronteachingschoolhub.net/,dbrechin@swchs.net,01799 513 030,Braintree;Chelmsford;Epping Forest;Harlow;Uttlesford
 EE10,Inspiration Teaching School Hub,www.inspirationteachingschoolhub.org/,inspirationteachinghub@inspirationtrust.org,01603 733 443,Breckland;Great Yarmouth;South Norfolk;East Suffolk North
-EE2,Unity Teaching School Hub,www.unityteachingschoolhub.net,info@utsh.org,01440 333400 ext5564,"Babergh, Colchester, Ipswich, Tendring"
+EE2,Unity Teaching School Hub,www.unityteachingschoolhub.net,info@utsh.org,01440 333400 ext5564,Babergh;Colchester;Ipswich;Tendring
 EE3,Cambridgeshire and Peterborough Teaching School Hub,www.CPTSHN.co.uk,lbirch@meridiantrust.co.uk,07765 240 887,Cambridge;East Cambridgeshire;Fenland;Huntingdonshire;Peterborough;South Cambridgeshire
 EE4,The Julian Teaching School Hub,www.thejulian-tsh.org.uk/,julian-tsh@ndhs.org.uk,01603 753 767,Broadland;King's Lynn and West Norfolk;North Norfolk;Norwich
 EE5,Chafford Hundred South Essex Teaching School Hub,https://www.harrisinstitute.org.uk,tshub@harrisinstitute.org.uk,01375 484582,Basildon;Brentwood;Castle Point;Maldon;Rochford;Southend-on-Sea;Thurrock
@@ -20,12 +20,12 @@ EM8,Northamptonshire Teaching School Hub,"www.northamptonshireteachingschoolhub.
 L1,East London Teaching School Hub,www.eastlondontsh.org/,info@eastlondontsh.org,020 7791 7218,Hackney;Tower Hamlets
 L10,Thames South Teaching School Hub,www.thamessouthtsh.org,thamessouthtsh@nestschools.org,020 8289 4767x125,Bexley;Bromley;Greenwich
 L2,London District East Teaching School Hub,www.londondistricteast.org,info@londondistricteast.org,020 7476 1848,Barking and Dagenham;Havering;Newham
-L3,North-East London Chobham Teaching School Hub,https://www.harrisinstitute.org.uk,tshub@harrisinstitute.org.uk,0203 540 0360,"Haringey, Redbridge, Waltham Forest"
+L3,North-East London Chobham Teaching School Hub,https://www.harrisinstitute.org.uk,tshub@harrisinstitute.org.uk,0203 540 0360,Haringey;Redbridge;Waltham Forest
 L4,North West London Teaching School Hub (NWLTSH),https://www.whtc.co.uk/3613/teaching-school-hub,,020 8385 4800,Barnet;Brent;Enfield
 L5,Teach West London,www.teachwestlondon.org.uk,info@teachwestlondon.org.uk,0203 301 3180,Ealing;Harrow;Hillingdon;Hounslow
 L6,Central London Teaching School Hub,www.centrallondontsh.org.uk/,centrallondontsh@centrallondontsh.org.uk,020 7479 3904,Camden;City of London;Hammersmith and Fulham;Islington;Kensington and Chelsea;Westminster
 L7,Wandle Teaching School Hub,www.wandletshub.org.uk,enquiries@wandlelearningpartnership.org.uk,020 4568 6718 option 1,Kingston upon Thames;Merton;Richmond upon Thames;Wandsworth
-L8,Crystal Palace South London Teaching School Hub, https://www.harrisinstitute.org.uk,tshub@harrisinstitute.org.uk,0203 540 0360,Croydon;Epsom and Ewell;Sutton
+L8,Crystal Palace South London Teaching School Hub,https://www.harrisinstitute.org.uk,tshub@harrisinstitute.org.uk,0203 540 0360,Croydon;Epsom and Ewell;Sutton
 L9,London South Teaching School Hub,www.londonsouthtsh.org/,info@londonsouthtsh.org,0203 935 4663,Lambeth;Lewisham;Southwark
 NE1,The Three Rivers Teaching School Hub,www.3rtsh.co.uk,Teachingschool.hub@the3rivers.net,01670 501 537,Newcastle upon Tyne;North Tyneside;Northumberland
 NE2,Tees Valley Teaching School Hub,www.teesvalleytsh.co.uk,info@teesvalleytsh.co.uk,01429 273 273,Darlington;Hartlepool;Middlesbrough;Redcar and Cleveland;Stockton-on-Tees
@@ -33,7 +33,7 @@ NE3,Northern Lights Teaching School Hub,www.northernlightstsh.co.uk,tshinfo@nllt
 NE4,NELT Teaching School Hub,www.nelthub.co.uk/,info@nelthub.co.uk,0191 518 0222,County Durham
 NW1,Inspire Learning Teaching School Hub NW,www.inspirelearningtsh.co.uk,enquiries@inspirelearningtsh.co.uk,0151 245 3186,Liverpool;Wirral
 NW10,East Manchester Teaching Hub,www.eastmanchesterteachinghub.com/,info@eastmanchesterteachinghub.com,0161 785 5083,Oldham;Tameside
-NW11,One Cumbria Teaching School Hub,www.onecumbria.education,BEDDOET@onecumbria.education,07 856 904 332,"Cumberland, Westmorland and Furness"
+NW11,One Cumbria Teaching School Hub,www.onecumbria.education,BEDDOET@onecumbria.education,07 856 904 332,Cumberland;Westmorland and Furness
 NW12,Cheshire Teaching School Hub,www.cheshiretsh.co.uk,TSA@stjosephsmail.com,01782 848 008,Cheshire East;Cheshire West and Chester
 NW2,Generate Teaching Hub,www.generateteachinghub.org,hub@wpat.uk,07897 280 909,Halton;Warrington;Wigan
 NW3,"Star Teaching School Hub Bolton, Bury, Rochdale",www.starteachingschoolhubs.org,info@starteachingschoolhubs.org,0330 313 9870,Bolton;Bury;Rochdale
@@ -55,7 +55,7 @@ SE6,"Astra Teaching School Hub, Buckinghamshire",www.astrahub.org,hello@astra-al
 SE7,HISP Teaching School Hub,www.hispteachingschoolhub.org,info@hisptsh.org,02382 357517,New Forest;Southampton;Test Valley;Winchester
 SE8,Kent Teaching School hub,www.ktsh.org.uk,info@ktsh.org.uk,01892 521 595,Maidstone;Tunbridge Wells;Sevenoaks;Tonbridge and Malling
 SE9,Oxfordshire Teaching School Hub,www.oxfordshireteachingschoolhub.org.uk/,info@otsh.org.uk,01865 647999,Cherwell;Oxford;South Oxfordshire;Vale of White Horse;West Oxfordshire
-SW1,South Central Teaching School Hub,www.southcentraltsh.com/,www.southcentraltsh.com/contact-us,,"Bournemouth, Christchurch and Poole;Dorset"
+SW1,South Central Teaching School Hub,www.southcentraltsh.com/,www.southcentraltsh.com/contact-us,,Bournemouth;Christchurch and Poole;Dorset
 SW10,Balcarras Teaching School Hub,www.balcarrasteachingschoolhub.co.uk/,ts-hub@balcarras.gloucs.sch.uk,01242 545134,Cheltenham;Cotswold;Stroud
 SW11,One Cornwall Teaching School Hub (East Cornwall),www.onecornwall.co.uk/,hello@onecornwall.co.uk,01872 530 583 ext. 187,Cornwall
 SW2,Odyssey Teaching School Hub,www.odysseytsh.org,admin@odysseytsh.org,01242 538 297,Forest of Dean;Gloucester;Tewkesbury
