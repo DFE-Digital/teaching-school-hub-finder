@@ -1,4 +1,6 @@
 class LocalAuthority::Search
+  RESULT_LIMIT = 15
+
   def initialize(scope, query)
     @scope = scope
     @query = query
@@ -12,7 +14,7 @@ class LocalAuthority::Search
     if search_polygon
       result.where("ST_Intersects(geometry, ?)", search_polygon)
     else
-      result.limit(5)
+      result.limit(RESULT_LIMIT)
     end
   end
 
