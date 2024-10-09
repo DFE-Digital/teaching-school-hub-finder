@@ -6,8 +6,8 @@ RSpec.describe Hub, type: :model do
 
   let(:authorities) { ["Birmingham South", "Birmingham North", "Sandwell", "Dudley", "Bromsgrove", "Wyre Forest"] }
   let(:hub_names) do
-    ["Star Teaching School Hub Birmingham South", "Arthur Terry Teaching School Hub - North Birmingham",
-     "Haybridge Teaching School Hub", "Tudor Grange Teaching School Hub", "Prince Henry's Teaching School Hub"]
+    ["Star Teaching School Hub Birmingham South", "Haybridge Teaching School Hub",
+      "Tudor Grange Teaching School Hub", "Prince Henry's Teaching School Hub"]
   end
 
   it "sorts results by distance" do
