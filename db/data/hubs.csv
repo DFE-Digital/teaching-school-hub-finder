@@ -25,7 +25,7 @@ L4,North West London Teaching School Hub (NWLTSH),https://www.whtc.co.uk/3613/te
 L5,Teach West London,www.teachwestlondon.org.uk,info@teachwestlondon.org.uk,0203 301 3180,Ealing;Harrow;Hillingdon;Hounslow
 L6,Central London Teaching School Hub,www.centrallondontsh.org.uk/,centrallondontsh@centrallondontsh.org.uk,020 7479 3904,Camden;City of London;Hammersmith and Fulham;Islington;Kensington and Chelsea;Westminster
 L7,Wandle Teaching School Hub,www.wandletshub.org.uk,enquiries@wandlelearningpartnership.org.uk,020 4568 6718 option 1,Kingston upon Thames;Merton;Richmond upon Thames;Wandsworth
-L8,Crystal Palace South London Teaching School Hub,https://www.harrisinstitute.org.uk,tshub@harrisinstitute.org.uk,0203 540 0360,Croydon;Epsom and Ewell;Sutton
+L8,Harris City Academy Crystal Palace Teaching School Hub,https://www.harriscrystalpalace.org.uk/2916/welcome-to-our-teaching-school-hub,info@harriscrystalpalace.org.uk,020 8771 2261,Croydon;Epsom and Ewell;Sutton
 L9,London South Teaching School Hub,www.londonsouthtsh.org/,info@londonsouthtsh.org,0203 935 4663,Lambeth;Lewisham;Southwark
 NE1,The Three Rivers Teaching School Hub,www.3rtsh.co.uk,Teachingschool.hub@the3rivers.net,01670 501 537,Newcastle upon Tyne;North Tyneside;Northumberland
 NE2,Tees Valley Teaching School Hub,www.teesvalleytsh.co.uk,info@teesvalleytsh.co.uk,01429 273 273,Darlington;Hartlepool;Middlesbrough;Redcar and Cleveland;Stockton-on-Tees
@@ -33,7 +33,7 @@ NE3,Northern Lights Teaching School Hub,www.northernlightstsh.co.uk,tshinfo@nllt
 NE4,NELT Teaching School Hub,www.nelthub.co.uk/,info@nelthub.co.uk,0191 518 0222,County Durham
 NW1,Inspire Learning Teaching School Hub NW,www.inspirelearningtsh.co.uk,enquiries@inspirelearningtsh.co.uk,0151 245 3186,Liverpool;Wirral
 NW10,East Manchester Teaching Hub,www.eastmanchesterteachinghub.com/,info@eastmanchesterteachinghub.com,0161 785 5083,Oldham;Tameside
-NW11,One Cumbria Teaching School Hub,www.onecumbria.education,BEDDOET@onecumbria.education,07 856 904 332,Cumberland;Westmorland and Furness
+NW11,One Cumbria Teaching School Hub,www.onecumbria.education,BEDDOET@onecumbria.education,07 856 904 332,Allerdale;Barrow-in-Furness;Carlisle;Copeland;Eden;South Lakeland
 NW12,Cheshire Teaching School Hub,www.cheshiretsh.co.uk,TSA@stjosephsmail.com,01782 848 008,Cheshire East;Cheshire West and Chester
 NW2,Generate Teaching Hub,www.generateteachinghub.org,hub@wpat.uk,07897 280 909,Halton;Warrington;Wigan
 NW3,"Star Teaching School Hub Bolton, Bury, Rochdale",www.starteachingschoolhubs.org,info@starteachingschoolhubs.org,0330 313 9870,Bolton;Bury;Rochdale
@@ -61,7 +61,7 @@ SW11,One Cornwall Teaching School Hub (East Cornwall),www.onecornwall.co.uk/,hel
 SW2,Odyssey Teaching School Hub,www.odysseytsh.org,admin@odysseytsh.org,01242 538 297,Forest of Dean;Gloucester;Tewkesbury
 SW3,SWIFT Kingsbridge Teaching School Hub,www.sw-ift.org.uk,info@sw-ift.org.uk,01548 852 641,Exeter;Plymouth;South Hams;Teignbridge;Torbay;West Devon
 SW4,SWIFT Colyton Teaching School Hub,www.sw-ift.org.uk,info@sw-ift.org.uk,01297 552 327,East Devon;Mid Devon;North Devon;Torridge
-SW5,Five Counties Teaching School Hubs Alliance (Somerset),www.fivecountiesalliance.co.uk/,info@fivecountiesalliance.co.uk,0117 244 6233,Somerset
+SW5,Five Counties Teaching School Hubs Alliance (Somerset),www.fivecountiesalliance.co.uk/,info@fivecountiesalliance.co.uk,0117 244 6233,Mendip;Sedgemoor;South Somerset;Somerset West and Taunton
 SW6,Five Counties Teaching School Hubs Alliance (South Glos and BANES),www.fivecountiesalliance.co.uk/,info@fivecountiesalliance.co.uk,01454 867 400,Bath and North East Somerset;South Gloucestershire
 SW7,Swindon and Wiltshire Teaching School Hub,www.swindonwiltshiretsh.org.uk/,dfisher@glenmoorandwinton.org.uk,01202 598 300,Swindon;Wiltshire
 SW8,One Cornwall Teaching School Hub (West),www.onecornwall.co.uk/,hello@onecornwall.co.uk,01637 477 382,Isles of Scilly;Cornwall
@@ -75,13 +75,13 @@ WM5,The Golden Thread Teaching School Hub,www.goldenthreadtsh.co.uk/,tsh@painsle
 WM6,Coventry and Central Warwickshire Teaching School Hub,www.tshub.co.uk,tshub@lawrencesheriffschool.com,01788 843 786,Coventry;Rugby;Warwick
 WM7,Haybridge Teaching School Hub,www.haybridgeteachingschoolhub.co.uk/,info@haybridgeteachingschoolhub.co.uk,01562 881114,Dudley;Sandwell
 WM8,Manor Teaching School Hub,www.manorteachingschoolhub.com/,info@manorteachingschoolhub.com,01902 558 901,South Staffordshire;Walsall;Wolverhampton
-WM9,Arthur Terry Teaching School Hub - North Birmingham,www.arthurterryteachingschool.atlp.org.uk/,northbirminghamTSH@atlp.org.uk,0121 328 1128,Birmingham North
+WM9,Arthur Terry Teaching School Hub - North Birmingham,www.arthurterryteachingschool.atlp.org.uk/,northbirminghamTSH@atlp.org.uk,0121 328 1128,Birmingham
 YH1,Exchange Teaching Hub,www.exchangeteachinghub.org.uk,info@exchangeteachinghub.org.uk,0345 145 0075,Barnsley;Doncaster
-YH10,Red Kite Teaching School Hub,www.redkitetsh.co.uk/,tsh@rklt.co.uk,01423 535 646,North Yorkshire West
+YH10,Red Kite Teaching School Hub,www.redkitetsh.co.uk/,tsh@rklt.co.uk,01423 535 646,Craven;Hambleton;Harrogate;Richmondshire
 YH2,South Yorkshire Teaching Hub,www.southyorkshireteachinghub.org/,info@southyorkshireteachinghub.org,0114 235 7980,Rotherham;Sheffield
 YH3,Pathfinder Teaching School Hub,www.pathfinder-tsh.co.uk,info@tsh.pmat.academy,01904 806 900,North Yorkshire East;York
 YH4,DRET Teaching School Hub,www.dretteachingschoolhub.co.uk,teachingschoolhub@dret.co.uk,01472 602 000 ext 3060,North East Lincolnshire;North Lincolnshire
-YH5,The Vantage Teaching School Hub North Humber,www.vantagetsh.org,teachingschoolhub@smchull.org,01482 851 136,East Riding of Yorkshire;Kingston upon Hullf
+YH5,The Vantage Teaching School Hub North Humber,www.vantagetsh.org,teachingschoolhub@smchull.org,01482 851 136,East Riding of Yorkshire;Kingston upon Hull, City of
 YH6,Exceed Teaching School Hub,www.teachingschoolhub.co.uk,tshub@exceedacademiestrust.co.uk,01274 622 002,Bradford
 YH7,Calderdale and Kirklees Teaching School Hub,www.ckteachingschoolhub.org,cktsh@sharemat.co.uk,01484 868 762,Calderdale;Kirklees
 YH8,Exchange Teaching Hub,www.exchangeteachinghub.org.uk,info@exchangeteachinghub.org.uk,0345 145 0075,North Yorkshire South;Wakefield
