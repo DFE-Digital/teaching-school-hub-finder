@@ -20,6 +20,12 @@ This project depends on:
 
 When updating the `db/data/hubs.csv` file, please make sure to run `rails r 'Hub::Importer.new.reload!'` locally first to make sure all changes were applied.
 
+### Updating Authorities File
+
+Geojson file can be find here: https://geoportal.statistics.gov.uk/datasets/f23beaa3769a4488b6a5f0cfb7980f51_0/explore?location=52.427623%2C-1.470139%2C8.26
+Due to size of the file, it is split into several files. Individual files should be smaller than 100 MB due to git limitations.
+See `lib/tasks/split_authorities_file.rake` for details.
+
 ## Testing
 
 ### Mocking with VCR for feature specs

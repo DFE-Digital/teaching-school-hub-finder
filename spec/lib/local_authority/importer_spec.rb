@@ -1,8 +1,8 @@
 describe LocalAuthority::Importer do
-  subject(:importer) { described_class.new(path) }
+  subject(:importer) { described_class.new(paths) }
 
   # File below contains 8 local authorities
-  let(:path) { File.expand_path(File.join(__FILE__, '..', 'fake_authorities.json')) }
+  let(:paths) { [File.expand_path(File.join(__FILE__, '..', 'fake_authorities.json'))] }
 
   describe "#load!" do
     it "loads local authorities from given file into the database" do

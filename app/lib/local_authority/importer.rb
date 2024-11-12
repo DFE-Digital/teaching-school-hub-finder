@@ -1,9 +1,10 @@
 class LocalAuthority::Importer
-  DEFAULT_SOURCE = Rails.root.join("db/data/authorities.json").freeze
+  DEFAULT_SOURCES = (1..LOCAL_AUTHORITIES_FILES_COUNT).map { |num|
+ Rails.root.join("db/data/authorities_#{num}.json") }.freeze
   attr_reader :path
 
-  def initialize(path = DEFAULT_SOURCE)
-    @path = path
+  def initialize(paths = DEFAULT_SOURCES)
+    @paths= paths
   end
 
   def reload!
@@ -29,15 +30,17 @@ class LocalAuthority::Importer
   end
 
   def load
-    Rails.logger.debug("Loading #{@path}")
+    @paths.each do |path|
+      Rails.logger.debug("Loading #{path}")
 
-    features = read_file(@path)
+      features = read_file(path)
 
-    features.each do |feature|
-      LocalAuthority.create!(
-        name: feature.properties["LAD22NM"],
-        geometry: feature.geometry
-      )
+      features.each do |feature|
+        LocalAuthority.create!(
+          name: feature.properties["LAD24NM"],
+          geometry: feature.geometry
+        )
+      end
     end
   end
 
