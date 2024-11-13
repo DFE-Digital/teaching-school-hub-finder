@@ -37,7 +37,7 @@ class LocalAuthority::Search
 
   def transform(geo)
     RGeo::CoordSys::Proj4.transform(
-      RGeo::CoordSys::Proj4.new("EPSG:4326"),
+      RGeo::CoordSys::Proj4.new("EPSG:27700"),
       geo,
       RGeo::CoordSys::Proj4.new("EPSG:27700"),
       RGeo::Cartesian.preferred_factory
