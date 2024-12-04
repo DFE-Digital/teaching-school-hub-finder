@@ -4,6 +4,11 @@
 
 Live version of the service can be find here: https://find-a-teaching-school-hub.education.gov.uk/
 
+## Test environments
+- [Staging](https://staging.find-a-teaching-school-hub.education.gov.uk/)
+- [Sandbox](https://sandbox.find-a-teaching-school-hub.education.gov.uk/)
+- Review apps: the link is posted in the pull request
+
 ## Setup
 
 ### Prerequisites
