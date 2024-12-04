@@ -140,12 +140,14 @@ get-cluster-credentials: set-azure-account
 	kubelogin convert-kubeconfig -l $(if ${GITHUB_ACTIONS},spn,azurecli)
 
 aks-console: get-cluster-credentials
-	$(if $(PULL_REQUEST_NUMBER), $(eval export APP_ID=review-$(PULL_REQUEST_NUMBER)) , $(eval export APP_ID=$(CONFIG_LONG)))
-	kubectl -n ${NAMESPACE} exec -ti --tty deployment/cpd-tsh-${APP_ID} -- /bin/sh -c "cd /app && bundle exec rails c"
+	$(if $(PULL_REQUEST_NUMBER), $(eval export APP_ID=review-$(PULL_REQUEST_NUMBER)) , $(eval export APP_ID=$(CONFIG)))
+	$(eval NAMESPACE=$(shell jq -r '.namespace' terraform/application/config/${CONFIG}.tfvars.json))
+	kubectl -n ${NAMESPACE} exec -ti deployment/cpd-tsh-${APP_ID} -- /bin/sh -c "cd /app && bundle exec rails c"
 
 aks-ssh: get-cluster-credentials
-	$(if $(PULL_REQUEST_NUMBER), $(eval export APP_ID=review-$(PULL_REQUEST_NUMBER)) , $(eval export APP_ID=$(CONFIG_LONG)))
-	kubectl -n ${NAMESPACE} exec -ti --tty deployment/teaching-school-hub-finder-${APP_ID} -- /bin/sh
+	$(if $(PULL_REQUEST_NUMBER), $(eval export APP_ID=review-$(PULL_REQUEST_NUMBER)) , $(eval export APP_ID=$(CONFIG)))
+	$(eval NAMESPACE=$(shell jq -r '.namespace' terraform/application/config/${CONFIG}.tfvars.json))
+	kubectl -n ${NAMESPACE} exec -ti deployment/cpd-tsh-${APP_ID} -- /bin/sh
 
 .PHONY: install-konduit
 install-konduit: ## Install the konduit script, for accessing backend services
