@@ -32,6 +32,5 @@ terraform/application/vendor
 terraform/domains/environment_domains/vendor
 terraform/domains/infrastructure/vendor/
 terraform.tfstate*
-bin/terrafile
 
 .env
