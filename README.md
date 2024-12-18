@@ -20,6 +20,8 @@ This project depends on:
   - [NodeJS](https://nodejs.org/)
   - [Yarn](https://yarnpkg.com/)
   - [Postgres](https://www.postgresql.org/)
+  - [PostGIS](https://postgis.net/)
+  - [proj](https://proj.org/)
 
 ### Updating Hub File
 
