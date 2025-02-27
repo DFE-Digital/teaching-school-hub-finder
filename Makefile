@@ -137,7 +137,7 @@ production-cluster:
 
 get-cluster-credentials: set-azure-account
 	az aks get-credentials --overwrite-existing -g ${CLUSTER_RESOURCE_GROUP_NAME} -n ${CLUSTER_NAME}
-	kubelogin convert-kubeconfig -l $(if ${GITHUB_ACTIONS},spn,azurecli)
+	kubelogin convert-kubeconfig -l $(if ${AAD_LOGIN_METHOD},${AAD_LOGIN_METHOD},azurecli)
 
 aks-console: get-cluster-credentials
 	$(if $(PULL_REQUEST_NUMBER), $(eval export APP_ID=review-$(PULL_REQUEST_NUMBER)) , $(eval export APP_ID=$(CONFIG)))
