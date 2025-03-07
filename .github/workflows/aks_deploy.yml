@@ -53,7 +53,7 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        domain_environment: [sandbox]
+        domain_environment: [staging]
     environment:
       name: production
     permissions:
