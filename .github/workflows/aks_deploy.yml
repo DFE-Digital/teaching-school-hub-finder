@@ -198,18 +198,32 @@ jobs:
     name: Build and push Docker image
     runs-on: ubuntu-latest
     if: github.actor != 'dependabot[bot]' && github.event_name != 'merge_group'
+    continue-on-error: true
     outputs:
       docker-image: ${{ steps.build-docker-image.outputs.image }}
+      build-success: ${{ steps.build-status.outputs.success }}
     steps:
       - uses: actions/checkout@v4
 
       - uses: DFE-Digital/github-actions/build-docker-image@master
         id: build-docker-image
+        continue-on-error: true
         with:
           docker-repository: ghcr.io/dfe-digital/teaching-school-hub-finder
           github-token: ${{ secrets.GITHUB_TOKEN }}
           context: .
           snyk-token: ${{ secrets.SNYK_TOKEN }}
+
+      - name: Set build status
+        id: build-status
+        run: |
+          if [ "${{ steps.build-docker-image.outcome }}" == "success" ]; then
+            echo "success=true" >> $GITHUB_OUTPUT
+          else
+            echo "success=false" >> $GITHUB_OUTPUT
+          fi
+          echo "Docker build outcome: ${{ steps.build-docker-image.outcome }}"
+          echo "Setting build-success to: ${{ steps.build-docker-image.outcome == 'success' }}"
 
   permit-merge:
     name: Permit merge

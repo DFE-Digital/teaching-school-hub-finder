@@ -17,9 +17,9 @@ jobs:
     concurrency: deploy_review_${{ github.event.pull_request.number || github.event.inputs.pr_number }}
     environment: review
     if: >
-      github.event.action == 'closed' && contains(github.event.pull_request.labels.*.name, 'deploy') ||
-      (github.event.action == 'unlabeled' && github.event.label.name == 'deploy') || (github.event_name ==
-      'workflow_dispatch')
+      github.actor != 'dependabot[bot]' &&
+      ((github.event.action == 'closed') ||
+      (github.event_name == 'workflow_dispatch'))
     runs-on: ubuntu-latest
     permissions:
       contents: read
