@@ -33,12 +33,11 @@ jobs:
         id: config
         run: |
           if [ ${{ github.event_name }} == 'workflow_dispatch' ]; then
-            PR_NUMBER=${{ github.event.inputs.pr_number }}
+            PULL_REQUEST_NUMBER=${{ github.event.inputs.pr_number }}
           else
-            PR_NUMBER=${{ github.event.pull_request.number }}
+            PULL_REQUEST_NUMBER=${{ github.event.pull_request.number }}
           fi
-          echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
-          echo "ENVIRONMENT=pr-${PR_NUMBER}" >> $GITHUB_ENV
+          echo "PULL_REQUEST_NUMBER=$PULL_REQUEST_NUMBER" >> $GITHUB_ENV
 
       - name: Set environment variables
         shell: bash
@@ -55,7 +54,7 @@ jobs:
           azure-subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           container-name: terraform-state
-          pr-number: ${{ env.PR_NUMBER }}
+          pr-number: ${{ env.PULL_REQUEST_NUMBER }}
           resource-group-name: "${{ env.AZURE_RESOURCE_PREFIX }}-cpdtsh-${{ env.CONFIG_SHORT }}-rg"
           storage-account-name: "${{ env.AZURE_RESOURCE_PREFIX }}cpdtsh${{ env.CONFIG_SHORT }}tfsa"
           tf-state-file: "${{ env.ENVIRONMENT }}_kubernetes.tfstate"
