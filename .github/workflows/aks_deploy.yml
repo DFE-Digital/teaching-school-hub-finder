@@ -210,7 +210,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           context: .
           snyk-token: ${{ secrets.SNYK_TOKEN }}
-
+          reuse-cache: true
+          max-cache: true
   permit-merge:
     name: Permit merge
     needs: [linting, rspec, brakeman]
