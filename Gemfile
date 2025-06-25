@@ -6,7 +6,7 @@ ruby file: ".ruby-version"
 gem "activerecord-postgis-adapter"
 gem "bootsnap", require: false
 gem "bundler", "~> 2.4"
-gem 'geocoder'
+gem "geocoder"
 gem "pg", "~> 1.1"
 gem "puma", "~> 6.4"
 gem "rails", "~> 7.1.3"
@@ -21,8 +21,8 @@ gem "cssbundling-rails"
 gem "jsbundling-rails"
 gem "propshaft"
 
-gem "govuk-components"
-gem "govuk_design_system_formbuilder"
+gem "govuk-components", "~> 5.4.0"
+gem "govuk_design_system_formbuilder", "~> 5.4.0"
 
 group :development do
   gem 'prettier_print', require: false
