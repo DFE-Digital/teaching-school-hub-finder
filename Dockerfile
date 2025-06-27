@@ -7,7 +7,7 @@ FROM ruby:3.3.8-alpine3.20 AS builder
 
 RUN apk -U upgrade && \
     apk add --update --no-cache gcc git libc6-compat libc-dev make nodejs \
-    postgresql14-dev yarn
+    postgresql14-dev yaml-dev yarn
 
 WORKDIR /app
 
@@ -65,8 +65,7 @@ WORKDIR /app
 RUN apk add --update --no-cache tzdata && cp /usr/share/zoneinfo/Europe/London /etc/localtime && echo "Europe/London" > /etc/timezone
 
 # libpq: required to run postgres
-RUN apk add --no-cache libpq
-RUN apk add --no-cache proj-dev
+RUN apk add --no-cache libpq proj-dev yaml
 
 # Copy files generated in the builder image
 COPY --from=builder /app /app
