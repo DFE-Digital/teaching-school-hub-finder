@@ -61,7 +61,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '16.20.0'
+          node-version: '20.15.1'
 
       - name: Update dependencies
         run: sudo apt-get update
@@ -126,7 +126,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '16.20.0'
+          node-version: '20.15.1'
 
       - name: Set up ruby gem cache
         uses: actions/cache@v4
@@ -170,7 +170,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '16.20.0'
+          node-version: '20.15.1'
 
       - name: Set up ruby gem cache
         uses: actions/cache@v4
