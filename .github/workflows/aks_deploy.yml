@@ -56,12 +56,12 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.8
+          ruby-version: 3.4.4
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.15.1'
+          node-version: '22.15.1'
 
       - name: Update dependencies
         run: sudo apt-get update
@@ -121,12 +121,12 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.8
+          ruby-version: 3.4.4
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.15.1'
+          node-version: '22.15.1'
 
       - name: Set up ruby gem cache
         uses: actions/cache@v4
@@ -165,12 +165,12 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.8
+          ruby-version: 3.4.4
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.15.1'
+          node-version: '22.15.1'
 
       - name: Set up ruby gem cache
         uses: actions/cache@v4

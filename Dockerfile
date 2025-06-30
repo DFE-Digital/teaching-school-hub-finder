@@ -3,11 +3,11 @@
 # production: runs the actual app
 
 # Build builder image
-FROM ruby:3.3.8-alpine3.20 AS builder
+FROM ruby:3.4.4-alpine3.21 AS builder
 
 RUN apk -U upgrade && \
     apk add --update --no-cache gcc git libc6-compat libc-dev make nodejs \
-    postgresql14-dev yaml-dev yarn
+    postgresql-dev proj-dev yaml-dev yarn
 
 WORKDIR /app
 
@@ -15,13 +15,6 @@ WORKDIR /app
 RUN apk add --update --no-cache tzdata && \
     cp /usr/share/zoneinfo/Europe/London /etc/localtime && \
     echo "Europe/London" > /etc/timezone
-
-# build-base: dependencies for bundle
-# yarn: node package manager
-# postgresql-dev: postgres driver and libraries
-RUN apk add --no-cache build-base yarn postgresql14-dev
-RUN apk add --no-cache proj-dev
-#RUN apk add --no-cache libproj-dev proj-bin
 
 # Install gems defined in Gemfile
 COPY .ruby-version Gemfile Gemfile.lock ./
@@ -56,7 +49,7 @@ RUN rm -rf node_modules log/* tmp/* /tmp && \
     find /usr/local/bundle/gems -name "*.html" -delete
 
 # Build runtime image
-FROM ruby:3.3.8-alpine3.20 AS production
+FROM ruby:3.4.4-alpine3.21 AS production
 
 # The application runs from /app
 WORKDIR /app
