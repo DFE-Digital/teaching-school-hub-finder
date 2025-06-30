@@ -14,6 +14,7 @@ gem "rails_semantic_logger"
 gem "rgeo"
 gem "rgeo-geojson"
 gem "rgeo-proj4"
+gem "sentry-rails"
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
