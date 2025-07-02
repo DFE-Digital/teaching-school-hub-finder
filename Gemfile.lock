@@ -136,7 +136,7 @@ GEM
       csv (>= 3.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    govuk-components (5.10.1)
+    govuk-components (5.11.1)
       html-attributes-utils (~> 1.0.0, >= 1.0.0)
       pagy (>= 6, < 10)
       view_component (>= 3.18, < 3.24)
@@ -417,7 +417,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   geocoder
-  govuk-components (~> 5.10.1)
+  govuk-components (~> 5.11.1)
   govuk_design_system_formbuilder (~> 5.10.1)
   jsbundling-rails
   pg (~> 1.1)
