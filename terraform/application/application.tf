@@ -43,6 +43,7 @@ module "web_application" {
 
   docker_image = var.docker_image
 
-  replicas     = var.app_replicas
-  enable_logit = var.enable_logit
+  replicas        = var.app_replicas
+  enable_logit    = var.enable_logit
+  run_as_non_root = var.run_as_non_root
 }
