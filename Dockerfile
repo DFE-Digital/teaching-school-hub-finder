@@ -64,5 +64,12 @@ RUN apk add --no-cache libpq proj-dev yaml
 COPY --from=builder /app /app
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 
+RUN addgroup -S appgroup -g 20001 && adduser -S appuser -G appgroup -u 10001
+
+RUN chown appuser:appgroup /app/tmp
+
+# Switch to non-root user
+USER 10001
+
 CMD bundle exec rails db:migrate && \
     bundle exec rails server -b 0.0.0.0

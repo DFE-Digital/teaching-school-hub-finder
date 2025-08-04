@@ -68,6 +68,13 @@ variable "app_replicas" {
 
 variable "enable_logit" { default = false }
 
+variable "run_as_non_root" {
+  type        = bool
+  default     = true
+  description = "Whether to enforce that containers must run as non-root user"
+}
+
 locals {
   postgres_ssl_mode = var.enable_postgres_ssl ? "require" : "disable"
 }
+
