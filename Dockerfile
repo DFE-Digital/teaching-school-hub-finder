@@ -58,7 +58,7 @@ WORKDIR /app
 RUN apk add --update --no-cache tzdata && cp /usr/share/zoneinfo/Europe/London /etc/localtime && echo "Europe/London" > /etc/timezone
 
 # libpq: required to run postgres
-RUN apk add --no-cache libpq proj-dev yaml
+RUN apk add --no-cache libpq proj-dev sqlite-libs yaml
 
 # Copy files generated in the builder image
 COPY --from=builder /app /app
