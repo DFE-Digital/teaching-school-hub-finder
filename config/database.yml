@@ -1,10 +1,9 @@
 default: &default
   encoding: unicode
-  url: <%= ENV['DATABASE_URL'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  url: <%= ENV['DATABASE_URL'].gsub(/^postgres:/, 'postgis:') rescue "connectionerrordev" %>
+  url: <%= ENV['DATABASE_URL']&.gsub(/^postgres:/, 'postgis:') rescue "connectionerrordev" %>
   adapter: postgis
 
 development:
