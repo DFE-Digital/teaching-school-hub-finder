@@ -51,7 +51,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -116,7 +116,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -160,7 +160,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -201,7 +201,7 @@ jobs:
     outputs:
       docker-image: ${{ steps.build-docker-image.outputs.image }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: DFE-Digital/github-actions/build-docker-image@master
         id: build-docker-image
@@ -228,7 +228,7 @@ jobs:
     environment:
       name: review
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: ./.github/actions/deploy-environment-to-aks
         id: deploy
@@ -259,7 +259,7 @@ jobs:
     outputs:
       docker-image: ${{ needs.docker.outputs.docker-image }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: ./.github/actions/deploy-environment-to-aks
         id: deploy
@@ -281,7 +281,7 @@ jobs:
       name: sandbox
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: ./.github/actions/deploy-environment-to-aks
         id: deploy
@@ -303,7 +303,7 @@ jobs:
       name: production
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: ./.github/actions/deploy-environment-to-aks
         id: deploy
