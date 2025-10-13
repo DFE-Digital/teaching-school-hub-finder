@@ -12,7 +12,7 @@ module "postgres" {
   azure_enable_monitoring     = var.enable_monitoring
   azure_enable_backup_storage = var.enable_postgres_backup_storage
   server_version              = "14"
-  server_docker_image         = "postgis/postgis:14-3.4"
+  server_postgis_version      = "14-3.4"
   azure_extensions            = ["POSTGIS"]
   azure_sku_name              = var.postgres_flexible_server_sku
 }
