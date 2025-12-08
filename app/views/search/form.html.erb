@@ -1,14 +1,23 @@
 <%= content_for(:page_title) do %>
-  Search teaching school hub
+  <% if @service_unavailable %>
+    Sorry, there's a problem with the service
+  <% else %>
+    Search teaching school hub
+  <% end %>
 <% end %>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= form_with model: @search, url: { action: :results }, scope: '', method: :get do |f|%>
-      <%= f.govuk_text_field :location,
-         width: "three-quarters",
-         label: { text: t('.title'), size: "xl", tag: "h1" },
-         hint: { text: t(".hint") } %>
-      <%= f.govuk_submit t('.submit') %>
+    <% if @service_unavailable %>
+      <h1 class="govuk-heading-l">Sorry, there's a problem with the service</h1>
+      <p class="govuk-body">Please try again later.</p>
+    <% else %>
+      <%= form_with model: @search, url: { action: :results }, scope: '', method: :get do |f|%>
+        <%= f.govuk_text_field :location,
+           width: "three-quarters",
+           label: { text: t('.title'), size: "xl", tag: "h1" },
+           hint: { text: t(".hint") } %>
+        <%= f.govuk_submit t('.submit') %>
+      <% end %>
     <% end %>
   </div>
 </div>
