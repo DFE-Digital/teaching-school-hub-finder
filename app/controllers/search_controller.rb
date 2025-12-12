@@ -4,9 +4,14 @@ class SearchController < ApplicationController
   end
 
   def results
-    @search = SearchForm.new(params.permit(:location) )
+    @search = SearchForm.new(params.permit(:location))
 
-    render 'form', status: :unprocessable_entity unless @search.valid?
+    return render 'form', status: :unprocessable_entity unless @search.valid?
+
+    @search.hubs # Eager load to catch geocoding errors
+  rescue LocalAuthority::ServiceUnavailable
+    @service_unavailable = true
+    render 'form'
   end
 
   def validate

@@ -24,6 +24,8 @@ class LocalAuthority::Search
 
   def geo_result
     @geo_result ||= Geocoder.search("#{@query}, UK").first
+  rescue Geocoder::Error, Timeout::Error => e
+    raise LocalAuthority::ServiceUnavailable, e.message
   end
 
   def search_polygon
