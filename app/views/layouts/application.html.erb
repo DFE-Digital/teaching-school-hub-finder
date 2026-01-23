@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="govuk-template">
+<html lang="en" class="govuk-template govuk-template--rebranded">
   <head>
     <% if cookies["consented-to-cookies"] == "accept" %>
       <!-- Google Tag Manager -->
@@ -43,7 +43,15 @@
     <%= render partial: "shared/cookies/banner" %>
     <%= govuk_skip_link %>
 
-    <%= govuk_header(service_name: t('service.title')) %>
+    <%= govuk_header  %>
+
+    <%=
+      govuk_service_navigation(
+        current_path: request.path,
+        service_name: t('service.title'),
+        service_url: root_path,
+      )
+    %>
 
     <div class="govuk-width-container">
       <main class="govuk-main-wrapper" id="main-content" role="main">
