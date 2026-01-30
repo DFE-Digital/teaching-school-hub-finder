@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/search/results", to: "search#results"
   get "/search/validate", to: "search#validate"
 
-  get "/pages/privacy-policy", to: "pages#privacy_policy"
+  get "/pages/privacy-policy", to: redirect("https://www.gov.uk/government/publications/privacy-information-education-providers-workforce-including-teachers/privacy-information-education-providers-workforce-including-teachers#using-your-data-to-use-our-websites")
   get "/pages/cookies", to: "pages#cookies_policy"
   get "/pages/accessibility", to: "pages#accessibility"
   get "/pages/terms", to: "pages#terms"
