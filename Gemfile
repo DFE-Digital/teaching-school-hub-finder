@@ -8,7 +8,7 @@ gem "bootsnap", require: false
 gem "bundler", "~> 2.4"
 gem "geocoder"
 gem "pg", "~> 1.6"
-gem "puma", "~> 7.1"
+gem "puma", "~> 7.2"
 gem "rails", "~> 8.0.4"
 gem "rails_semantic_logger"
 gem "rgeo"
