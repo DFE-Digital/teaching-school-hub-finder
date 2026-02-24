@@ -5,4 +5,4 @@ AZURE_SUBSCRIPTION=s189-teacher-services-cloud-production
 AZURE_RESOURCE_PREFIX=s189p01
 ENABLE_KV_DIAGNOSTICS=true
 NAMESPACE=cpd-production
-TERRAFORM_MODULES_TAG=stable
+TERRAFORM_MODULES_TAG=stable-azurerm-v4
