@@ -29,7 +29,7 @@ RUN bundler -v && \
 
 # Install node packages defined in package.json
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --check-files
+RUN yarn install --frozen-lockfile --check-files --ignore-scripts
 
 # Copy all files to /app (except what is defined in .dockerignore)
 COPY . .

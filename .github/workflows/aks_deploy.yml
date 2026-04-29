@@ -83,7 +83,7 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Install yarn
-        run: npm install yarn -g
+        run: npm install yarn -g --ignore-scripts
 
       - name: Yarn cache
         id: yarn-cache
@@ -98,7 +98,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install node.js dependencies
-        run: yarn install
+        run: yarn install --ignore-scripts
 
       - name: Set up test database
         run: bin/rails db:create db:schema:load
@@ -148,7 +148,7 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Install node.js dependencies
-        run: yarn install
+        run: yarn install --ignore-scripts
 
       - name: Run rubocop
         run: bundle exec rubocop --format clang --parallel
