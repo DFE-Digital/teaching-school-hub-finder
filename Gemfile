@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source "https://rubygems.org", cooldown: 7
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby file: ".ruby-version"
@@ -16,7 +16,7 @@ gem "rgeo-geojson"
 gem "rgeo-proj4"
 gem "sentry-rails"
 
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem "cssbundling-rails"
 gem "jsbundling-rails"
@@ -49,7 +49,7 @@ group :test, :development do
   gem "rspec-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "brakeman", require: false
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[ mri windows ]
   gem 'rubocop-govuk', require: false
   gem 'vcr'
   gem 'webmock'
