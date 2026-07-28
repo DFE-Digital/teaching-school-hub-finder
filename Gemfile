@@ -22,7 +22,7 @@ gem "cssbundling-rails"
 gem "jsbundling-rails"
 gem "propshaft"
 
-gem "govuk-components", "~> 5.13.1"
+gem "govuk-components", "~> 6.4.1"
 gem "govuk_design_system_formbuilder", "~> 5.13.0"
 
 group :development do
