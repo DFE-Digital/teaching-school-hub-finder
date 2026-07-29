@@ -1,15 +1,14 @@
-$govuk-global-styles: true;
-$govuk-new-link-styles: true;
-$govuk-new-typography-scale: true;
-$govuk-assets-path: "/";
 
-@import "govuk-frontend/dist/govuk";
+@use "govuk-frontend/dist/govuk" as * with (
+  $govuk-global-styles: true,
+  $govuk-assets-path: "/"
+);
 
 .hub-results {
-  border-top: 1px solid govuk-colour("mid-grey");
+  border-top: 1px solid govuk-functional-colour("border");
 
   .hub-result {
     padding-top: 20px;
-    border-bottom: 1px solid govuk-colour("mid-grey");
+    border-bottom: 1px solid govuk-functional-colour("border");
   }
 }
