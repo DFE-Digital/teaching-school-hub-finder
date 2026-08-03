@@ -1,4 +1,4 @@
-source "https://rubygems.org", cooldown: 7
+source "https://rubygems.org"#, cooldown: 7
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby file: ".ruby-version"
@@ -9,7 +9,7 @@ gem "bundler"
 gem "geocoder"
 gem "pg", "~> 1.6"
 gem "puma", "~> 8.0"
-gem "rails", "~> 8.0.4"
+gem "rails", "8.0.5.1"
 gem "rails_semantic_logger"
 gem "rgeo"
 gem "rgeo-geojson"
