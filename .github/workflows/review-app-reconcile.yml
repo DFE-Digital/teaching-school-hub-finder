@@ -87,7 +87,7 @@ jobs:
       - name: set PR_NUMBER
         id: config
         run: |
-          echo PULL_REQUEST_NUMBER=${{ matrix.pr_number }}" >> $GITHUB_ENV
+          echo "PULL_REQUEST_NUMBER=${{ matrix.pr_number }}" >> $GITHUB_ENV
 
       - name: Set environment variables
         shell: bash
