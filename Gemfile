@@ -23,7 +23,7 @@ gem "jsbundling-rails"
 gem "propshaft"
 
 gem "govuk-components", "~> 6.4"
-gem "govuk_design_system_formbuilder", "~> 6.4"
+gem "govuk_design_system_formbuilder", "~> 6.5"
 
 group :development do
   gem 'prettier_print', require: false
