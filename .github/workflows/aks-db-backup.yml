@@ -6,12 +6,12 @@ on:
       environment:
         description: Environment to backup
         required: true
-        default: development
+        default: staging
         type: choice
         options:
-          - production
-          - sandbox
           - staging
+          - sandbox
+          - production
       backup-file:
         description: |
           Backup file name (without extension). Default is cpdtsh_[env]_adhoc_YYYY-MM-DD. Set it explicitly when backing up a point-in-time (PTR) server. (Optional)
@@ -39,11 +39,13 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        environment: [production, sandbox, staging]
+        environment: ${{ github.event_name == 'schedule'
+          && fromJson('["production","sandbox","staging"]')
+          || fromJson(format('["{0}"]', github.event.inputs.environment)) }}
     environment:
-      name: ${{matrix.environment}}
+      name: ${{ matrix.environment }}
     env:
-      DEPLOY_ENV: ${{ matrix.environment || 'production'  }}
+      DEPLOY_ENV: ${{ matrix.environment }}
       BACKUP_FILE: ${{ inputs.backup-file || 'schedule'  }}
     concurrency: ${{matrix.environment}}_${{github.event.number}}
     steps:
@@ -74,6 +76,12 @@ jobs:
           fi
           echo "BACKUP_FILE=${BACKUP_FILE}" >> $GITHUB_ENV
           echo "KEYVAULT_NAME=${AZURE_RESOURCE_PREFIX}-${SERVICE_SHORT}-${CONFIG_SHORT}-inf-kv" >> $GITHUB_ENV
+      
+      - name: Debug
+        run: |
+          echo "Trigger: ${{ github.event_name }}"
+          echo "Input environment: ${{ github.event.inputs.environment }}"
+          echo "Matrix environment: ${{ matrix.environment }}"
 
       - name: Backup ${{ env.DEPLOY_ENV }} postgres
         uses: DFE-Digital/github-actions/backup-postgres@master
