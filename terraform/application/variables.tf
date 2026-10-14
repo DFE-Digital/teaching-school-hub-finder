@@ -51,19 +51,31 @@ variable "postgres_flexible_server_sku" {
   default = "B_Standard_B1ms"
 }
 
+variable "postgres_server_version" {
+  type        = string
+  description = "Version of PostgreSQL to use for PostgreSQL server"
+  default     = "18"
+}
+
+variable "postgres_server_docker_image" {
+  type        = string
+  description = "Docker image to use for PostgreSQL Kubernetes deployment"
+  default     = "postgis/postgis:18-3.6"
+}
+
 variable "domain" {
-    type = string
+  type    = string
   default = ""
 }
 
 variable "app_suffix" {
-    type = string
+  type    = string
   default = ""
 }
 
 variable "app_replicas" {
   description = "Number of replicas"
-  default = 1
+  default     = 1
 }
 
 variable "enable_logit" { default = false }
@@ -77,4 +89,3 @@ variable "run_as_non_root" {
 locals {
   postgres_ssl_mode = var.enable_postgres_ssl ? "require" : "disable"
 }
-

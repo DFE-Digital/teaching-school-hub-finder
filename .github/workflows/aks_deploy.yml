@@ -41,7 +41,7 @@ jobs:
 
     services:
       postgres:
-        image: postgis/postgis:14-3.4-alpine
+        image: postgis/postgis:18-3.6-alpine
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
