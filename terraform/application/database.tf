@@ -11,12 +11,11 @@ module "postgres" {
   use_azure                   = var.deploy_azure_backing_services
   azure_enable_monitoring     = var.enable_monitoring
   azure_enable_backup_storage = var.enable_postgres_backup_storage
-  server_version              = "14"
-  server_docker_image         = "postgis/postgis:14-3.4"
+  server_version              = var.postgres_server_version
+  server_docker_image         = var.postgres_server_docker_image
   azure_extensions            = ["POSTGIS"]
   azure_sku_name              = var.postgres_flexible_server_sku
 }
-
 
 module "redis-cache" {
   source = "./vendor/modules/aks//aks/redis"
