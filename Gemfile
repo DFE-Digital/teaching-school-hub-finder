@@ -7,7 +7,7 @@ gem "activerecord-postgis-adapter"
 gem "bootsnap", require: false
 gem "bundler"
 gem "geocoder"
-gem "pg", "~> 1.6"
+gem "pg", "~> 1.7"
 gem "puma", "~> 8.0"
 gem "rails", "~> 8.1.4"
 gem "rails_semantic_logger", "~> 5.2"
