@@ -7,9 +7,9 @@ on:
         required: true
         type: choice
         options:
-          - production
-          - sandbox
           - staging
+          - sandbox
+          - production
       mode:
         required: true
         type: choice
