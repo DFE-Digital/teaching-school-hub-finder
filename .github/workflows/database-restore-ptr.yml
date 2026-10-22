@@ -9,9 +9,9 @@ on:
         default: development
         type: choice
         options:
-          - production
-          - sandbox
           - staging
+          - sandbox
+          - production
       confirm-production:
         description: Must be set to true if restoring production
         required: true
