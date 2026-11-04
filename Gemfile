@@ -9,7 +9,7 @@ gem "bundler"
 gem "geocoder"
 gem "pg", "~> 1.7"
 gem "puma", "~> 8.0"
-gem "rails", "~> 8.1.4.1"
+gem "rails", "~> 8.1.4"
 gem "rails_semantic_logger", "~> 5.2"
 gem "rgeo"
 gem "rgeo-geojson"
@@ -26,7 +26,6 @@ gem "govuk-components", "~> 6.6"
 gem "govuk_design_system_formbuilder", "~> 6.6"
 
 group :development do
-  gem 'prettier_print', require: false
   gem "web-console"
 end
 
@@ -39,12 +38,7 @@ group :test do
 end
 
 group :test, :development do
-  gem "amazing_print"
-  gem "byebug"
   gem "dotenv-rails"
-  gem "pry"
-  gem "pry-byebug"
-  gem "rspec"
   gem "rspec-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "brakeman", require: false
